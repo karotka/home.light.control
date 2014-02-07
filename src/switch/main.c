@@ -8,24 +8,26 @@
 #include "touch.h"
 #include "twi.h"
 
-static touch_channel_t btn0 = {
-    .mux = 0,
-    .portmask = (1 << PC0)
-};
 static touch_channel_t btn1 = {
-    .mux = 1,
-    .portmask = (1 << PC1)
+    .mux = 0,
+    .port = &PORTC,
+    .portmask = (1 << PC0),
 };
-//static touch_channel_t btn2 = {
-//    .mux = 2,
-//    .port = &PORTC,
-//    .portmask = (1 << PC2),
-//};
-//static touch_channel_t btn3 = {
-//    .mux = 3,
-//    .port = &PORTC,
-//    .portmask = (1 << PC3),
-//};
+static touch_channel_t btn2 = {
+    .mux = 1,
+    .port = &PORTC,
+    .portmask = (1 << PC1),
+};
+static touch_channel_t btn3 = {
+    .mux = 2,
+    .port = &PORTC,
+    .portmask = (1 << PC2),
+};
+static touch_channel_t btn4 = {
+    .mux = 3,
+    .port = &PORTC,
+    .portmask = (1 << PC3),
+};
 
 void pwmInit(void);
 //void watchDogInit(void);
@@ -54,57 +56,55 @@ int main(void) {
     // Start the TWI transceiver
     TWI_StartTransceiver();
 
-    // Start UART for debug
+    // Start UART
     UART_init();
 
-    uint16_t sample0;
-    uint16_t sample1;
-    //uint16_t sample2;
-    //uint16_t sample3;
-
+    // Init ADC touch library
     TOUCH_init();
 
-    //uint8_t temp;
+    uint16_t sample1, sample2, sample3, sample4;
+    uint8_t temp;//, value;
 
     for(;;) {
-        //if (!TWI_TransceiverBusy()) {
-        //    //PORTD |= (1 << PD7);
-        //    if (TWI_statusReg.RxDataInBuf) {
-        //        TWI_GetDataFromTransceiver(&temp, 1);
-        //    }
-        //    UART_putc(temp);
-        //    UART_putc(TWI_slaveAddress);
-        //    TWI_StartTransceiverWithData(&temp, 1);
-        //    //OCR0A = temp;
-        //}
-        /*
-        sample0 = touch_adc(&btn0);
-
-        UART_puts("Value: ");
-        UART_puti((uint16_t)sample0);
-        UART_putc('\n');
-
-        if (sample0 > 810) {
-            PORTB |= (1 << PB7);
-        } else {
-            PORTB &= ~(1 << PB7); // set pullup off
-        }
-        */
-        sample1 = touch_adc(&btn1);
-
-        UART_puts("Value: ");
-        UART_puti((uint16_t)sample1);
-        UART_putc('\n');
-
-        if (sample1 > 810) {
-            PORTD |= (1 << PD7);
-        } else {
-            PORTD &= ~(1 << PD7); // set pullup off
+        if (!TWI_TransceiverBusy()) {
+            //PORTD |= (1 << PD7);
+            if (TWI_statusReg.RxDataInBuf) {
+                TWI_GetDataFromTransceiver(&temp, 1);
+            }
+            UART_putc(temp);
+            UART_putc(TWI_slaveAddress);
+            TWI_StartTransceiverWithData(&temp, 1);
+            //value = temp;
         }
 
-        _delay_ms(200);
-        //_delay_us(32);
+        // Button 1
+        sample1 = TOUCH_measure(&btn1);
+        if (sample1 > 80) {
+            UART_puti(1);
+            UART_putc('\n');
+        }
 
+        // Button 2
+        sample2 = TOUCH_measure(&btn2);
+        if (sample2 > 80) {
+            UART_puti(2);
+            UART_putc('\n');
+        }
+
+        // Button 3
+        sample3 = TOUCH_measure(&btn3);
+        if (sample3 > 80) {
+            UART_puti(3);
+            UART_putc('\n');
+        }
+
+        // Button 3
+        sample4 = TOUCH_measure(&btn4);
+        if (sample4 > 80) {
+            UART_puti(4);
+            UART_putc('\n');
+        }
+        _delay_ms(100);
     }
 }
 
@@ -124,7 +124,7 @@ void watchDogInit(void) {
 void pinsInit(void) {
     DDRD = 0x00;
     PORTD = 0x00;
-    DDRD |= (1 << PD5) | (1 << PD6) | (1 << PD7);
+    //DDRD |= (1 << PD5) | (1 << PD6) | (1 << PD7);
 
     DDRC = 0x00;
     PORTC = 0x00;
@@ -133,7 +133,7 @@ void pinsInit(void) {
     // all B pins as input
     DDRB = 0x00;
     PORTB = 0x00;
-    DDRB |= (1 << PB7);
+    //DDRB |= (1 << PB7);
 }
 
 void readAddress(volatile uint8_t *port, volatile uint8_t *addr) {
