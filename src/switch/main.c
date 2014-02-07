@@ -1,5 +1,5 @@
 #define F_CPU 8000000UL
-
+#define SENS 1000
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <avr/sleep.h>
@@ -8,32 +8,29 @@
 #include "touch.h"
 #include "twi.h"
 
-void pwmInit(void);
-void watchDogInit(void);
-void pinsInit(void);
-void readAddress(volatile uint8_t *port, volatile uint8_t *addr);
-
-
 static touch_channel_t btn0 = {
     .mux = 0,
-    .port = &PORTC,
-    .portmask = (1 << PC0),
+    .portmask = (1 << PC0)
 };
 static touch_channel_t btn1 = {
     .mux = 1,
-    .port = &PORTC,
-    .portmask = (1 << PC1),
+    .portmask = (1 << PC1)
 };
-static touch_channel_t btn2 = {
-    .mux = 2,
-    .port = &PORTC,
-    .portmask = (1 << PC2),
-};
-static touch_channel_t btn3 = {
-    .mux = 3,
-    .port = &PORTC,
-    .portmask = (1 << PC3),
-};
+//static touch_channel_t btn2 = {
+//    .mux = 2,
+//    .port = &PORTC,
+//    .portmask = (1 << PC2),
+//};
+//static touch_channel_t btn3 = {
+//    .mux = 3,
+//    .port = &PORTC,
+//    .portmask = (1 << PC3),
+//};
+
+void pwmInit(void);
+//void watchDogInit(void);
+void pinsInit(void);
+//void readAddress(volatile uint8_t *port, volatile uint8_t *addr);
 
 int main(void) {
     volatile uint8_t TWI_slaveAddress;
@@ -44,7 +41,7 @@ int main(void) {
 
     //pwmInit();
 
-    readAddress(&PINB, &TWI_slaveAddress);
+    //readAddress(&PINB, &TWI_slaveAddress);
     TWI_slaveAddress = 0x20;
 
     _delay_ms(200);
@@ -62,60 +59,59 @@ int main(void) {
 
     uint16_t sample0;
     uint16_t sample1;
-    uint16_t sample2;
-    uint16_t sample3;
+    //uint16_t sample2;
+    //uint16_t sample3;
 
     TOUCH_init();
 
-    PORTD &= ~(1 << PD7);
+    //uint8_t temp;
 
-    uint8_t temp;
     for(;;) {
-        if (!TWI_TransceiverBusy()) {
-            //PORTD |= (1 << PD7);
-            if (TWI_statusReg.RxDataInBuf) {
-                TWI_GetDataFromTransceiver(&temp, 1);
-            }
-            UART_putc(temp);
-            UART_putc(TWI_slaveAddress);
-            TWI_StartTransceiverWithData(&temp, 1);
-            //OCR0A = temp;
-        }
-        //PORTD &= ~(1 << PD7);
+        //if (!TWI_TransceiverBusy()) {
+        //    //PORTD |= (1 << PD7);
+        //    if (TWI_statusReg.RxDataInBuf) {
+        //        TWI_GetDataFromTransceiver(&temp, 1);
+        //    }
+        //    UART_putc(temp);
+        //    UART_putc(TWI_slaveAddress);
+        //    TWI_StartTransceiverWithData(&temp, 1);
+        //    //OCR0A = temp;
+        //}
+        /*
+        sample0 = touch_adc(&btn0);
 
-        sample0 = TOUCH_measure(&btn0);
-        sample1 = TOUCH_measure(&btn1);
-        sample2 = TOUCH_measure(&btn2);
-        sample3 = TOUCH_measure(&btn3);
+        UART_puts("Value: ");
+        UART_puti((uint16_t)sample0);
+        UART_putc('\n');
 
-        if (sample0 > 800) {
+        if (sample0 > 810) {
+            PORTB |= (1 << PB7);
+        } else {
+            PORTB &= ~(1 << PB7); // set pullup off
+        }
+        */
+        sample1 = touch_adc(&btn1);
+
+        UART_puts("Value: ");
+        UART_puti((uint16_t)sample1);
+        UART_putc('\n');
+
+        if (sample1 > 810) {
             PORTD |= (1 << PD7);
         } else {
-            PORTD &= ~(1 << PD7);
+            PORTD &= ~(1 << PD7); // set pullup off
         }
-        if (sample1 > 800) {
-            PORTD |= (1 << PD7);
-        } else {
-            PORTD &= ~(1 << PD7);
-        }
-        if (sample2 > 800) {
-            PORTD |= (1 << PD7);
-        } else {
-            PORTD &= ~(1 << PD7);
-        }
-        if (sample3 > 800) {
-            PORTD |= (1 << PD7);
-        } else {
-            PORTD &= ~(1 << PD7);
-        }
-        _delay_ms(100);
+
+        _delay_ms(200);
+        //_delay_us(32);
+
     }
 }
 
 void pwmInit(void) {
-    //TCCR0A = (1 << COM0A1) | (1 << WGM00);
-    //TCCR0A = (1 << WGM01) | (1 << WGM00) | (1 << COM0A1) | (0 << COM0A0);
-    //TCCR0B = (1 << CS01);
+    TCCR0A = (1 << COM0A1) | (1 << WGM00);
+    TCCR0A = (1 << WGM01) | (1 << WGM00) | (1 << COM0A1) | (0 << COM0A0);
+    TCCR0B = (1 << CS01);
 }
 
 void watchDogInit(void) {
@@ -128,11 +124,16 @@ void watchDogInit(void) {
 void pinsInit(void) {
     DDRD = 0x00;
     PORTD = 0x00;
-    DDRD |= (1 << PD6) | (1 << PD7);
+    DDRD |= (1 << PD5) | (1 << PD6) | (1 << PD7);
+
+    DDRC = 0x00;
+    PORTC = 0x00;
+    //DDRC |= (1 << PD0) | (1 << PD7);// | (1 << PD7);
 
     // all B pins as input
     DDRB = 0x00;
     PORTB = 0x00;
+    DDRB |= (1 << PB7);
 }
 
 void readAddress(volatile uint8_t *port, volatile uint8_t *addr) {
