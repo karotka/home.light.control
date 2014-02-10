@@ -10,12 +10,17 @@
 
 /** Holds information related to a single touch channel */
 typedef struct {
-    volatile uint8_t *port; //PORTx register for pin
+    volatile uint8_t *port;    // PORTx register for pin
     volatile uint8_t portmask; //mask for the bit in port
-    volatile uint8_t mux; //ADMUX value for the channel
+    volatile uint8_t mux;      //ADMUX value for the channel
+    volatile uint16_t sum;    //
+    volatile uint8_t state;    //
+    volatile uint8_t lstate;    //
+    volatile uint8_t count;    //
+    volatile uint16_t value;    //
 } touch_channel_t;
 
-enum {tt_off=0,tt_on,tt_push,tt_release,tt_timeout};
+enum {btnOff = 0, btnOn, btnRelease};
 
 //////////////////////////////////////////////////////////////////////////
 //
@@ -39,12 +44,14 @@ void TOUCH_init(void);
 //		tt_push		Touch button is pushed. Use this to initiate one time events.
 //		tt_release	Touch button is released. Use this to initiate one time events.
 //		tt_timeout	Touch button has been active too long and internal bias was	reset.
-uint8_t TOUCH_sense(touch_channel_t *channel);
+//uint8_t TOUCH_sense(touch_channel_t *channel);
 
 inline void adc_channel(uint8_t channel);
 
 inline uint16_t adc_get(void);
 
-uint16_t TOUCH_measure(touch_channel_t *channel);
+uint16_t touch_measure(touch_channel_t *btn);
+uint16_t touch_measure1(touch_channel_t *btn);
 
+void btn_set(touch_channel_t *btn);
 #endif
