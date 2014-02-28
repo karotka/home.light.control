@@ -1,5 +1,5 @@
 #define F_CPU 8000000UL
-#define BAUD 9600
+#define BAUD 300
 #define UBRR_VALUE (((F_CPU / (BAUD * 16UL))) - 1)
 
 #include <util/setbaud.h>

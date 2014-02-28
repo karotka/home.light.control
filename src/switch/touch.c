@@ -22,8 +22,8 @@ inline void adc_channel(uint8_t channel) {
 
 inline uint16_t adc_get(void) {
     ADCSRA |= (1 << ADSC);                  //start conversion
-    //while(!(ADCSRA & (1 << ADIF)));         //wait for conversion to finish
-    while(ADCSRA & (1 << ADSC));         //wait for conversion to finish
+    //while(!(ADCSRA & (1 << ADIF)));       //wait for conversion to finish
+    while(ADCSRA & (1 << ADSC));            //wait for single conversion to finish
     ADCSRA |= (1 << ADIF);                  //reset the flag
     return ADC;                             //return value
 }

@@ -1,6 +1,6 @@
 PRG            = main
 OBJ            = main.o uart.o twi.o touch.c
-MCU_TARGET     = atmega48
+MCU_TARGET     = atmega48p
 OPTIMIZE       = -O2
 ISP            = usbtiny
 
