@@ -1,6 +1,6 @@
 PRG            = main
 OBJ            = main.o uart.o twi.o touch.c
-MCU_TARGET     = atmega48p
+MCU_TARGET     = atmega48
 OPTIMIZE       = -O2
 ISP            = usbtiny
 
@@ -31,7 +31,7 @@ hex:  $(PRG).hex
 install: load
 
 load: $(PRG).hex
-	avrdude -P usb -p m48 -c $(ISP) -U flash:w:$<
+	avrdude -P usb -p m48pa -c $(ISP) -U flash:w:$<
 
 status:
-	avrdude -P usb -p m48 -c $(ISP) -v
+	avrdude -P usb -p m48pa -c $(ISP) -v

@@ -16,6 +16,10 @@ void TOUCH_init(void) {
     ADCSRA |= (1 << ADEN) | (0 << ADIE);    // enable ADC 8MHz/64 = 125kHz
 }
 
+void TOUCH_down(void) {
+    ADCSRA &= ~(1 << ADEN);
+}
+
 inline void adc_channel(uint8_t channel) {
     ADMUX = (ADMUX & 0xf0) | (channel & 0x0f);
 }

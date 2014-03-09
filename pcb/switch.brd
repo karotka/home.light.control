@@ -12,40 +12,40 @@
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
-<layer number="19" name="Unrouted" color="13" fill="1" visible="no" active="yes"/>
+<layer number="19" name="Unrouted" color="13" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="25" name="tNames" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
-<layer number="29" name="tStop" color="7" fill="1" visible="no" active="yes"/>
-<layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
-<layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
-<layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
-<layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
-<layer number="34" name="bFinish" color="6" fill="6" visible="no" active="yes"/>
-<layer number="35" name="tGlue" color="7" fill="4" visible="no" active="yes"/>
-<layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
-<layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="yes"/>
-<layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="yes"/>
-<layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="yes"/>
-<layer number="42" name="bRestrict" color="1" fill="10" visible="no" active="yes"/>
-<layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
-<layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
-<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
-<layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="30" name="bStop" color="7" fill="6" visible="yes" active="yes"/>
+<layer number="31" name="tCream" color="7" fill="4" visible="yes" active="yes"/>
+<layer number="32" name="bCream" color="7" fill="5" visible="yes" active="yes"/>
+<layer number="33" name="tFinish" color="6" fill="3" visible="yes" active="yes"/>
+<layer number="34" name="bFinish" color="6" fill="6" visible="yes" active="yes"/>
+<layer number="35" name="tGlue" color="7" fill="4" visible="yes" active="yes"/>
+<layer number="36" name="bGlue" color="7" fill="5" visible="yes" active="yes"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
+<layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
+<layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
+<layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
+<layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
+<layer number="44" name="Drills" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="yes"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="yes"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="yes"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
 <layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
@@ -58,50 +58,50 @@
 <layer number="97" name="Info" color="7" fill="1" visible="no" active="no"/>
 <layer number="98" name="Guide" color="6" fill="1" visible="no" active="no"/>
 <layer number="100" name="Muster" color="7" fill="1" visible="no" active="no"/>
-<layer number="101" name="Patch_Top" color="12" fill="4" visible="no" active="yes"/>
-<layer number="102" name="Vscore" color="7" fill="1" visible="no" active="yes"/>
-<layer number="103" name="fp3" color="7" fill="1" visible="no" active="yes"/>
-<layer number="104" name="Name" color="7" fill="1" visible="no" active="yes"/>
-<layer number="105" name="Beschreib" color="9" fill="1" visible="no" active="yes"/>
-<layer number="106" name="BGA-Top" color="4" fill="1" visible="no" active="yes"/>
-<layer number="107" name="BD-Top" color="5" fill="1" visible="no" active="yes"/>
-<layer number="108" name="fp8" color="7" fill="1" visible="no" active="yes"/>
-<layer number="109" name="fp9" color="7" fill="1" visible="no" active="yes"/>
-<layer number="110" name="fp0" color="7" fill="1" visible="no" active="yes"/>
-<layer number="111" name="LPC17xx" color="7" fill="1" visible="no" active="yes"/>
-<layer number="112" name="tSilk" color="7" fill="1" visible="no" active="yes"/>
-<layer number="116" name="Patch_BOT" color="9" fill="4" visible="no" active="yes"/>
-<layer number="121" name="_tsilk" color="7" fill="1" visible="no" active="yes"/>
-<layer number="122" name="_bsilk" color="7" fill="1" visible="no" active="yes"/>
-<layer number="123" name="tTestmark" color="7" fill="1" visible="no" active="yes"/>
-<layer number="124" name="bTestmark" color="7" fill="1" visible="no" active="yes"/>
-<layer number="125" name="_tNames" color="7" fill="1" visible="no" active="yes"/>
-<layer number="126" name="_bNames" color="7" fill="1" visible="no" active="yes"/>
-<layer number="127" name="_tValues" color="7" fill="1" visible="no" active="yes"/>
-<layer number="128" name="_bValues" color="7" fill="1" visible="no" active="yes"/>
-<layer number="131" name="tAdjust" color="7" fill="1" visible="no" active="yes"/>
-<layer number="132" name="bAdjust" color="7" fill="1" visible="no" active="yes"/>
-<layer number="144" name="Drill_legend" color="7" fill="1" visible="no" active="yes"/>
-<layer number="151" name="HeatSink" color="7" fill="1" visible="no" active="yes"/>
-<layer number="152" name="_bDocu" color="7" fill="1" visible="no" active="yes"/>
-<layer number="199" name="Contour" color="7" fill="1" visible="no" active="yes"/>
-<layer number="200" name="200bmp" color="1" fill="10" visible="no" active="yes"/>
+<layer number="101" name="Patch_Top" color="12" fill="4" visible="yes" active="yes"/>
+<layer number="102" name="Vscore" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="103" name="fp3" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="104" name="Name" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="105" name="Beschreib" color="9" fill="1" visible="yes" active="yes"/>
+<layer number="106" name="BGA-Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="107" name="BD-Top" color="5" fill="1" visible="yes" active="yes"/>
+<layer number="108" name="fp8" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="109" name="fp9" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="110" name="fp0" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="111" name="LPC17xx" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="112" name="tSilk" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="116" name="Patch_BOT" color="9" fill="4" visible="yes" active="yes"/>
+<layer number="121" name="_tsilk" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="122" name="_bsilk" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="123" name="tTestmark" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="124" name="bTestmark" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="125" name="_tNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="126" name="_bNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="127" name="_tValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="128" name="_bValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="131" name="tAdjust" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="132" name="bAdjust" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="144" name="Drill_legend" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="151" name="HeatSink" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="152" name="_bDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="199" name="Contour" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="200" name="200bmp" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="201" name="201bmp" color="2" fill="1" visible="no" active="no"/>
 <layer number="202" name="202bmp" color="3" fill="1" visible="no" active="no"/>
-<layer number="203" name="203bmp" color="4" fill="10" visible="no" active="yes"/>
-<layer number="204" name="204bmp" color="5" fill="10" visible="no" active="yes"/>
-<layer number="205" name="205bmp" color="6" fill="10" visible="no" active="yes"/>
-<layer number="206" name="206bmp" color="7" fill="10" visible="no" active="yes"/>
-<layer number="207" name="207bmp" color="8" fill="10" visible="no" active="yes"/>
-<layer number="208" name="208bmp" color="9" fill="10" visible="no" active="yes"/>
-<layer number="209" name="209bmp" color="7" fill="1" visible="no" active="yes"/>
-<layer number="210" name="210bmp" color="7" fill="1" visible="no" active="yes"/>
-<layer number="211" name="211bmp" color="7" fill="1" visible="no" active="yes"/>
-<layer number="212" name="212bmp" color="7" fill="1" visible="no" active="yes"/>
-<layer number="213" name="213bmp" color="7" fill="1" visible="no" active="yes"/>
-<layer number="214" name="214bmp" color="7" fill="1" visible="no" active="yes"/>
-<layer number="215" name="215bmp" color="7" fill="1" visible="no" active="yes"/>
-<layer number="216" name="216bmp" color="7" fill="1" visible="no" active="yes"/>
+<layer number="203" name="203bmp" color="4" fill="10" visible="yes" active="yes"/>
+<layer number="204" name="204bmp" color="5" fill="10" visible="yes" active="yes"/>
+<layer number="205" name="205bmp" color="6" fill="10" visible="yes" active="yes"/>
+<layer number="206" name="206bmp" color="7" fill="10" visible="yes" active="yes"/>
+<layer number="207" name="207bmp" color="8" fill="10" visible="yes" active="yes"/>
+<layer number="208" name="208bmp" color="9" fill="10" visible="yes" active="yes"/>
+<layer number="209" name="209bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="210" name="210bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="211" name="211bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="212" name="212bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="213" name="213bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="214" name="214bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="215" name="215bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="216" name="216bmp" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="217" name="217bmp" color="18" fill="1" visible="no" active="no"/>
 <layer number="218" name="218bmp" color="19" fill="1" visible="no" active="no"/>
 <layer number="219" name="219bmp" color="20" fill="1" visible="no" active="no"/>
@@ -110,11 +110,11 @@
 <layer number="222" name="222bmp" color="23" fill="1" visible="no" active="no"/>
 <layer number="223" name="223bmp" color="24" fill="1" visible="no" active="no"/>
 <layer number="224" name="224bmp" color="25" fill="1" visible="no" active="no"/>
-<layer number="248" name="Housing" color="7" fill="1" visible="no" active="yes"/>
-<layer number="249" name="Edge" color="7" fill="1" visible="no" active="yes"/>
+<layer number="248" name="Housing" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="249" name="Edge" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="250" name="Descript" color="7" fill="1" visible="no" active="no"/>
 <layer number="251" name="SMDround" color="7" fill="1" visible="no" active="no"/>
-<layer number="254" name="cooling" color="7" fill="1" visible="no" active="yes"/>
+<layer number="254" name="cooling" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <board>
 <plain>
@@ -1998,50 +1998,129 @@ design rules under a new name.</description>
 </pass>
 </autorouter>
 <elements>
-<element name="U1" library="atmega48" package="QFP80P900X900X120-32N" value="ATMEGA48-20AU" x="36.35375" y="35.8775" rot="R90">
+<element name="U1" library="atmega48" package="QFP80P900X900X120-32N" value="ATMEGA48-20AU" x="36.35375" y="35.8775" smashed="yes" rot="R90">
 <attribute name="PACKAGE" value="TQFP-32" x="46.51375" y="70.1675" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="OC_NEWARK" value="73K2002" x="46.51375" y="70.1675" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="ATMEGA48-20AU" x="46.51375" y="70.1675" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SUPPLIER" value="Aymel" x="46.51375" y="70.1675" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="OC_FARNELL" value="9171312" x="46.51375" y="70.1675" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="35.433" y="34.8488" size="2.0828" layer="25" ratio="10" rot="SR0"/>
+<attribute name="VALUE" x="41.9481" y="67.9831" size="2.0828" layer="27" ratio="10" rot="SR0"/>
 </element>
-<element name="S1" library="switch-dil" package="CTS-219-07" value="219-07" x="50.165" y="22.225">
+<element name="S1" library="switch-dil" package="CTS-219-07" value="219-07" x="50.165" y="22.225" smashed="yes">
 <attribute name="OC_NEWARK" value="unknown" x="75.565" y="-18.415" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="75.565" y="-18.415" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="" x="75.565" y="-18.415" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="75.565" y="-18.415" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="52.665" y="23.74125" size="1.27" layer="25" rot="R180"/>
+<attribute name="VALUE" x="61.555" y="19.225" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="U$1" library="i2c" package="P82B715SMD" value="P82B715" x="17.62125" y="31.90875"/>
-<element name="R1" library="rcl" package="R1206" value="" x="35.56" y="23.1775"/>
-<element name="R2" library="rcl" package="R1206" value="" x="29.845" y="23.1775"/>
-<element name="R3" library="rcl" package="R1206" value="" x="29.845" y="20.16125"/>
-<element name="R4" library="rcl" package="R1206" value="" x="35.71875" y="19.685"/>
-<element name="R5" library="rcl" package="R1206" value="" x="35.8775" y="16.1925"/>
-<element name="R6" library="rcl" package="R1206" value="" x="49.8475" y="32.0675" rot="R270"/>
-<element name="R7" library="rcl" package="R1206" value="" x="54.76875" y="32.0675" rot="R270"/>
-<element name="R8" library="rcl" package="R1206" value="" x="25.7175" y="36.98875" rot="R180"/>
-<element name="R9" library="rcl" package="R1206" value="" x="31.90875" y="53.975" rot="R270"/>
-<element name="R10" library="rcl" package="R1206" value="" x="34.925" y="53.975" rot="R270"/>
-<element name="R11" library="rcl" package="R1206" value="" x="33.655" y="47.9425" rot="R90"/>
-<element name="R12" library="rcl" package="R1206" value="" x="37.465" y="47.9425" rot="R90"/>
-<element name="R13" library="rcl" package="R1206" value="" x="25.7175" y="34.44875" rot="R180"/>
-<element name="U$2" library="con-tycoelectronics" package="RJ45SMD" value="RJ45SMD" x="21.2725" y="48.5775"/>
-<element name="U$3" library="con-tycoelectronics" package="RJ45SMD" value="RJ45SMD" x="52.22875" y="48.5775"/>
-<element name="D1" library="diode" package="TO236" value="BZX84CSMD" x="29.845" y="59.3725" rot="R270"/>
-<element name="R14" library="rcl" package="R1206" value="" x="35.56" y="59.3725" rot="R180"/>
-<element name="C1" library="rcl" package="C0603" value="" x="18.0975" y="13.97"/>
-<element name="C2" library="rcl" package="C0603" value="" x="21.9075" y="13.97"/>
-<element name="C3" library="rcl" package="C0603" value="" x="30.95625" y="13.97" rot="R180"/>
-<element name="C4" library="rcl" package="C0603" value="" x="25.55875" y="13.97"/>
-<element name="C5" library="rcl" package="C1206" value="" x="35.56" y="62.07125" rot="R180"/>
-<element name="TP1" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="28.2575" y="13.97">
-<attribute name="TP_SIGNAL_NAME" value="" x="28.2575" y="13.97" size="1.778" layer="27" display="off"/>
+<element name="U$1" library="i2c" package="P82B715SMD" value="P82B715" x="17.62125" y="31.90875" smashed="yes">
+<attribute name="NAME" x="14.76375" y="29.74975" size="1.27" layer="25" ratio="10" rot="R90"/>
+<attribute name="VALUE" x="21.68525" y="29.74975" size="1.27" layer="27" ratio="10" rot="R90"/>
 </element>
-<element name="TP2" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="28.2575" y="9.8425">
-<attribute name="TP_SIGNAL_NAME" value="" x="28.2575" y="9.8425" size="1.778" layer="27" display="off"/>
+<element name="R1" library="rcl" package="R1206" value="" x="35.56" y="23.1775" smashed="yes">
+<attribute name="NAME" x="33.3375" y="24.28875" size="1.27" layer="25"/>
+<attribute name="VALUE" x="34.29" y="20.6375" size="1.27" layer="27"/>
 </element>
-<element name="TP3" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="13.97" y="29.845">
-<attribute name="TP_SIGNAL_NAME" value="" x="13.97" y="29.845" size="1.778" layer="27" display="off"/>
+<element name="R2" library="rcl" package="R1206" value="" x="29.845" y="23.1775" smashed="yes">
+<attribute name="NAME" x="28.575" y="24.13" size="1.27" layer="25"/>
+<attribute name="VALUE" x="28.575" y="20.6375" size="1.27" layer="27"/>
+</element>
+<element name="R3" library="rcl" package="R1206" value="" x="29.845" y="20.16125" smashed="yes">
+<attribute name="NAME" x="28.575" y="20.79625" size="1.27" layer="25"/>
+<attribute name="VALUE" x="28.575" y="17.62125" size="1.27" layer="27"/>
+</element>
+<element name="R4" library="rcl" package="R1206" value="" x="35.71875" y="19.685" smashed="yes">
+<attribute name="NAME" x="33.655" y="20.79625" size="1.27" layer="25"/>
+<attribute name="VALUE" x="34.44875" y="17.145" size="1.27" layer="27"/>
+</element>
+<element name="R5" library="rcl" package="R1206" value="" x="35.8775" y="16.1925" smashed="yes">
+<attribute name="NAME" x="33.655" y="17.30375" size="1.27" layer="25"/>
+<attribute name="VALUE" x="34.6075" y="13.6525" size="1.27" layer="27"/>
+</element>
+<element name="R6" library="rcl" package="R1206" value="" x="49.8475" y="32.0675" smashed="yes" rot="R270">
+<attribute name="NAME" x="48.73625" y="34.6075" size="1.27" layer="25"/>
+<attribute name="VALUE" x="47.3075" y="33.3375" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="R7" library="rcl" package="R1206" value="" x="54.76875" y="32.0675" smashed="yes" rot="R270">
+<attribute name="NAME" x="53.975" y="34.6075" size="1.27" layer="25"/>
+<attribute name="VALUE" x="52.22875" y="33.3375" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="R8" library="rcl" package="R1206" value="" x="25.7175" y="36.98875" smashed="yes" rot="R180">
+<attribute name="NAME" x="30.48" y="37.465" size="1.27" layer="25" rot="R180"/>
+<attribute name="VALUE" x="26.9875" y="39.52875" size="1.27" layer="27" rot="R180"/>
+</element>
+<element name="R9" library="rcl" package="R1206" value="" x="31.90875" y="53.975" smashed="yes" rot="R270">
+<attribute name="NAME" x="28.575" y="53.34" size="1.27" layer="25"/>
+<attribute name="VALUE" x="29.36875" y="55.245" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="R10" library="rcl" package="R1206" value="" x="34.925" y="53.975" smashed="yes" rot="R270">
+<attribute name="NAME" x="36.98875" y="52.22875" size="1.27" layer="25" rot="R180"/>
+<attribute name="VALUE" x="32.385" y="55.245" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="R11" library="rcl" package="R1206" value="" x="33.655" y="47.9425" smashed="yes" rot="R90">
+<attribute name="NAME" x="31.4325" y="44.45" size="1.27" layer="25"/>
+<attribute name="VALUE" x="36.195" y="46.6725" size="1.27" layer="27" rot="R90"/>
+</element>
+<element name="R12" library="rcl" package="R1206" value="" x="37.465" y="47.9425" smashed="yes" rot="R90">
+<attribute name="NAME" x="38.735" y="47.3075" size="1.27" layer="25"/>
+<attribute name="VALUE" x="40.005" y="46.6725" size="1.27" layer="27" rot="R90"/>
+</element>
+<element name="R13" library="rcl" package="R1206" value="" x="25.7175" y="34.44875" smashed="yes" rot="R180">
+<attribute name="NAME" x="31.4325" y="35.08375" size="1.27" layer="25" rot="R180"/>
+<attribute name="VALUE" x="26.9875" y="36.98875" size="1.27" layer="27" rot="R180"/>
+</element>
+<element name="U$2" library="con-tycoelectronics" package="RJ45SMD" value="RJ45SMD" x="21.2725" y="48.5775" smashed="yes">
+<attribute name="NAME" x="18.89125" y="45.87875" size="1.778" layer="25"/>
+<attribute name="VALUE" x="14.9225" y="43.4975" size="1.778" layer="27"/>
+</element>
+<element name="U$3" library="con-tycoelectronics" package="RJ45SMD" value="RJ45SMD" x="52.22875" y="48.5775" smashed="yes">
+<attribute name="NAME" x="54.76875" y="46.99" size="1.778" layer="25" rot="R180"/>
+<attribute name="VALUE" x="46.99" y="43.02125" size="1.778" layer="27"/>
+</element>
+<element name="D1" library="diode" package="TO236" value="BZX84CSMD" x="29.845" y="59.3725" smashed="yes" rot="R270">
+<attribute name="NAME" x="26.06675" y="58.78525" size="1.27" layer="25"/>
+<attribute name="VALUE" x="17.36725" y="59.32475" size="1.27" layer="27"/>
+</element>
+<element name="R14" library="rcl" package="R1206" value="" x="35.56" y="59.3725" smashed="yes" rot="R180">
+<attribute name="NAME" x="39.0525" y="58.42" size="1.27" layer="25" rot="R180"/>
+<attribute name="VALUE" x="36.83" y="61.9125" size="1.27" layer="27" rot="R180"/>
+</element>
+<element name="C1" library="rcl" package="C0603" value="" x="18.0975" y="13.97" smashed="yes">
+<attribute name="NAME" x="17.145" y="15.08125" size="1.27" layer="25"/>
+<attribute name="VALUE" x="17.4625" y="12.065" size="1.27" layer="27"/>
+</element>
+<element name="C2" library="rcl" package="C0603" value="" x="21.9075" y="13.97" smashed="yes">
+<attribute name="NAME" x="20.955" y="15.08125" size="1.27" layer="25"/>
+<attribute name="VALUE" x="21.2725" y="12.065" size="1.27" layer="27"/>
+</element>
+<element name="C3" library="rcl" package="C0603" value="" x="30.95625" y="13.97" smashed="yes" rot="R180">
+<attribute name="NAME" x="34.925" y="14.605" size="1.27" layer="25" rot="R180"/>
+<attribute name="VALUE" x="31.59125" y="15.875" size="1.27" layer="27" rot="R180"/>
+</element>
+<element name="C4" library="rcl" package="C0603" value="" x="25.55875" y="13.97" smashed="yes">
+<attribute name="NAME" x="24.4475" y="15.08125" size="1.27" layer="25"/>
+<attribute name="VALUE" x="24.92375" y="12.065" size="1.27" layer="27"/>
+</element>
+<element name="C5" library="rcl" package="C1206" value="" x="35.56" y="62.07125" smashed="yes" rot="R180">
+<attribute name="NAME" x="36.67125" y="64.61125" size="1.27" layer="25" rot="R180"/>
+<attribute name="VALUE" x="36.83" y="64.61125" size="1.27" layer="27" rot="R180"/>
+</element>
+<element name="TP1" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="28.2575" y="13.97" smashed="yes">
+<attribute name="TP_SIGNAL_NAME" value="" x="28.2575" y="11.43" size="1" layer="37"/>
+<attribute name="NAME" x="27.66615" y="15.0876" size="1.27" layer="25"/>
+<attribute name="VALUE" x="27.4955" y="13.081" size="0.0254" layer="27"/>
+</element>
+<element name="TP2" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="28.2575" y="9.8425" smashed="yes">
+<attribute name="TP_SIGNAL_NAME" value="" x="28.2575" y="7.3025" size="1" layer="37"/>
+<attribute name="NAME" x="24.0149" y="9.21385" size="1.27" layer="25"/>
+<attribute name="VALUE" x="27.4955" y="8.9535" size="0.0254" layer="27"/>
+</element>
+<element name="TP3" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="13.97" y="29.845" smashed="yes">
+<attribute name="TP_SIGNAL_NAME" value="" x="13.97" y="27.305" size="1" layer="37"/>
+<attribute name="NAME" x="16.0774" y="31.12135" size="1.27" layer="25"/>
+<attribute name="VALUE" x="13.208" y="28.956" size="0.0254" layer="27"/>
 </element>
 <element name="TP4" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="13.97" y="34.6075">
 <attribute name="TP_SIGNAL_NAME" value="" x="13.97" y="34.6075" size="1.778" layer="27" display="off"/>
@@ -2052,59 +2131,111 @@ design rules under a new name.</description>
 <element name="TP6" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="60.6425" y="52.07">
 <attribute name="TP_SIGNAL_NAME" value="" x="60.6425" y="52.07" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP7" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="8.73125" y="15.39875" rot="R45">
-<attribute name="TP_SIGNAL_NAME" value="" x="8.73125" y="15.39875" size="1.778" layer="27" rot="R45" display="off"/>
+<element name="TP7" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="8.73125" y="15.39875" smashed="yes" rot="R45">
+<attribute name="TP_SIGNAL_NAME" value="" x="10.5273" y="13.602696875" size="1" layer="37" rot="R45"/>
+<attribute name="NAME" x="7.635090625" y="15.434103125" size="1.27" layer="25" rot="R45"/>
+<attribute name="VALUE" x="8.82105" y="14.231315625" size="0.0254" layer="27" rot="R45"/>
 </element>
-<element name="TP9" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="8.5725" y="32.86125" rot="R45">
-<attribute name="TP_SIGNAL_NAME" value="" x="8.5725" y="32.86125" size="1.778" layer="27" rot="R45" display="off"/>
+<element name="TP9" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="8.5725" y="32.86125" smashed="yes" rot="R45">
+<attribute name="TP_SIGNAL_NAME" value="" x="10.36855" y="31.065196875" size="1" layer="37" rot="R45"/>
+<attribute name="NAME" x="7.476340625" y="32.896603125" size="1.27" layer="25" rot="R45"/>
+<attribute name="VALUE" x="8.6623" y="31.693815625" size="0.0254" layer="27" rot="R45"/>
 </element>
 <element name="TP11" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="39.6875" y="10.00125">
 <attribute name="TP_SIGNAL_NAME" value="" x="39.6875" y="10.00125" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP12" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="8.73125" y="40.79875" rot="R45">
-<attribute name="TP_SIGNAL_NAME" value="" x="8.73125" y="40.79875" size="1.778" layer="27" rot="R45" display="off"/>
+<element name="TP12" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="8.73125" y="40.79875" smashed="yes" rot="R45">
+<attribute name="TP_SIGNAL_NAME" value="" x="10.5273" y="39.002696875" size="1" layer="37" rot="R45"/>
+<attribute name="NAME" x="7.635090625" y="40.834103125" size="1.27" layer="25" rot="R45"/>
+<attribute name="VALUE" x="8.82105" y="39.631315625" size="0.0254" layer="27" rot="R45"/>
 </element>
-<element name="TP13" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="39.6875" y="17.145">
-<attribute name="TP_SIGNAL_NAME" value="" x="39.6875" y="17.145" size="1.778" layer="27" display="off"/>
+<element name="TP13" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="39.6875" y="17.145" smashed="yes">
+<attribute name="TP_SIGNAL_NAME" value="" x="39.6875" y="14.605" size="1" layer="37"/>
+<attribute name="NAME" x="38.9374" y="17.9451" size="1.27" layer="25"/>
+<attribute name="VALUE" x="38.9255" y="16.256" size="0.0254" layer="27"/>
 </element>
-<element name="U$4" library="pinhead" package="1X03SMD" value="" x="42.38625" y="52.07" rot="R90"/>
-<element name="R15" library="rcl" package="R1206" value="" x="29.68625" y="26.51125"/>
-<element name="U$5" library="pinhead" package="1X01SMD" value="PINHD-1X1SMD" x="31.59125" y="29.68625" rot="R90"/>
-<element name="U$6" library="pinhead" package="1X02SMD" value="PINHD-1X2SMD" x="40.48125" y="61.43625" rot="R270"/>
-<element name="R16" library="rcl" package="R1206" value="" x="39.0525" y="27.14625" rot="R90"/>
-<element name="LED1" library="led" package="SML1206" value="" x="35.08375" y="26.51125" rot="R180"/>
-<element name="N$39" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="11.27125" y="55.72125" rot="R225">
-<attribute name="TP_SIGNAL_NAME" value="" x="11.27125" y="55.72125" size="1.778" layer="27" rot="R225" display="off"/>
+<element name="U$4" library="pinhead" package="1X03SMD" value="" x="42.38625" y="52.07" smashed="yes" rot="R90">
+<attribute name="NAME" x="44.0563" y="51.51755" size="1.27" layer="25" ratio="10"/>
+<attribute name="VALUE" x="45.56125" y="48.26" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="TP10" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="31.115" y="49.2125">
-<attribute name="TP_SIGNAL_NAME" value="" x="31.115" y="49.2125" size="1.778" layer="27" display="off"/>
+<element name="R15" library="rcl" package="R1206" value="" x="29.68625" y="26.51125" smashed="yes">
+<attribute name="NAME" x="28.2575" y="27.6225" size="1.27" layer="25"/>
+<attribute name="VALUE" x="28.41625" y="23.97125" size="1.27" layer="27"/>
 </element>
-<element name="TP14" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="43.33875" y="30.1625" rot="R225">
-<attribute name="TP_SIGNAL_NAME" value="" x="43.33875" y="30.1625" size="1.778" layer="27" rot="R225" display="off"/>
+<element name="U$5" library="pinhead" package="1X01SMD" value="PINHD-1X1SMD" x="31.59125" y="29.68625" smashed="yes" rot="R90">
+<attribute name="NAME" x="29.1338" y="30.56255" size="1.27" layer="25" ratio="10"/>
+<attribute name="VALUE" x="68.10375" y="7.77875" size="1.27" layer="27" rot="R180"/>
+</element>
+<element name="U$6" library="pinhead" package="1X02SMD" value="PINHD-1X2SMD" x="40.48125" y="61.43625" smashed="yes" rot="R270">
+<attribute name="NAME" x="39.13505" y="62.4713" size="1.27" layer="25" ratio="10"/>
+<attribute name="VALUE" x="37.30625" y="62.70625" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="R16" library="rcl" package="R1206" value="" x="39.0525" y="27.14625" smashed="yes" rot="R90">
+<attribute name="NAME" x="37.94125" y="29.68625" size="1.27" layer="25"/>
+<attribute name="VALUE" x="41.5925" y="25.87625" size="1.27" layer="27" rot="R90"/>
+</element>
+<element name="LED1" library="led" package="SML1206" value="" x="35.08375" y="26.51125" smashed="yes" rot="R180">
+<attribute name="NAME" x="37.06" y="28.68625" size="1.27" layer="25" rot="R180"/>
+<attribute name="VALUE" x="36.58375" y="29.01125" size="1.27" layer="27" rot="R180"/>
+</element>
+<element name="N$39" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="11.27125" y="55.72125" smashed="yes" rot="R225">
+<attribute name="TP_SIGNAL_NAME" value="" x="9.475196875" y="57.5173" size="1" layer="37" rot="R225"/>
+<attribute name="NAME" x="12.36740625" y="55.68589375" size="1.27" layer="25" rot="R225"/>
+<attribute name="VALUE" x="11.181446875" y="56.88868125" size="0.0254" layer="27" rot="R225"/>
+</element>
+<element name="TP10" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="31.115" y="49.2125" smashed="yes">
+<attribute name="TP_SIGNAL_NAME" value="" x="31.115" y="46.6725" size="1" layer="37"/>
+<attribute name="NAME" x="25.9199" y="48.4251" size="1.27" layer="25"/>
+<attribute name="VALUE" x="30.353" y="48.3235" size="0.0254" layer="27"/>
+</element>
+<element name="TP14" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="43.33875" y="30.1625" smashed="yes" rot="R225">
+<attribute name="TP_SIGNAL_NAME" value="" x="41.542696875" y="31.95855" size="1" layer="37" rot="R225"/>
+<attribute name="NAME" x="47.000825" y="33.117925" size="1.27" layer="25" rot="R180"/>
+<attribute name="VALUE" x="43.248946875" y="31.32993125" size="0.0254" layer="27" rot="R225"/>
 </element>
 <element name="TP15" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="21.43125" y="34.13125">
 <attribute name="TP_SIGNAL_NAME" value="" x="21.43125" y="34.13125" size="1.778" layer="27" display="off"/>
 </element>
-<element name="TP16" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="21.59" y="29.845">
-<attribute name="TP_SIGNAL_NAME" value="" x="21.59" y="29.845" size="1.778" layer="27" display="off"/>
+<element name="TP16" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="21.59" y="29.845" smashed="yes">
+<attribute name="TP_SIGNAL_NAME" value="" x="21.59" y="27.305" size="1" layer="37"/>
+<attribute name="NAME" x="20.8399" y="30.6451" size="1.27" layer="25"/>
+<attribute name="VALUE" x="20.828" y="28.956" size="0.0254" layer="27"/>
 </element>
 <element name="LED3" library="led" package="SML1206" value="" x="33.81375" y="69.05625"/>
-<element name="LED4" library="led" package="SML1206" value="" x="68.73875" y="34.13125" rot="R270"/>
-<element name="LED5" library="led" package="SML1206" value="" x="33.49625" y="2.8575"/>
-<element name="LED6" library="led" package="SML1206" value="" x="0.9525" y="36.67125" rot="R270"/>
-<element name="C6" library="rcl" package="C1206" value="" x="38.89375" y="53.975" rot="R270"/>
+<element name="LED4" library="led" package="SML1206" value="" x="68.73875" y="34.13125" smashed="yes" rot="R270">
+<attribute name="NAME" x="66.1275" y="29.8925" size="1.27" layer="25"/>
+<attribute name="VALUE" x="66.23875" y="35.63125" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="LED5" library="led" package="SML1206" value="" x="33.49625" y="2.8575" smashed="yes">
+<attribute name="NAME" x="31.99625" y="3.8575" size="1.27" layer="25"/>
+<attribute name="VALUE" x="31.99625" y="0.3575" size="1.27" layer="27"/>
+</element>
+<element name="LED6" library="led" package="SML1206" value="" x="0.9525" y="36.67125" smashed="yes" rot="R270">
+<attribute name="NAME" x="-0.38875" y="39.57625" size="1.27" layer="25"/>
+<attribute name="VALUE" x="-1.5475" y="38.17125" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="C6" library="rcl" package="C1206" value="" x="38.89375" y="53.975" smashed="yes" rot="R270">
+<attribute name="NAME" x="40.16375" y="55.88" size="1.27" layer="25"/>
+<attribute name="VALUE" x="36.35375" y="55.245" size="1.27" layer="27" rot="R270"/>
+</element>
 <element name="C7" library="rcl" package="C1206" value="" x="36.35375" y="43.65625" rot="R180"/>
-<element name="TP17" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="43.97375" y="63.5">
-<attribute name="TP_SIGNAL_NAME" value="" x="43.97375" y="63.5" size="5.08" layer="27" display="off"/>
+<element name="TP17" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="43.97375" y="63.5" smashed="yes">
+<attribute name="TP_SIGNAL_NAME" value="" x="43.97375" y="60.96" size="1" layer="37"/>
+<attribute name="NAME" x="45.12865" y="62.7126" size="1.27" layer="25"/>
+<attribute name="VALUE" x="43.21175" y="62.611" size="0.0254" layer="27"/>
 </element>
-<element name="TP18" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="43.97375" y="59.3725">
-<attribute name="TP_SIGNAL_NAME" value="" x="43.97375" y="59.3725" size="5.08" layer="27" display="off"/>
+<element name="TP18" library="testpad" package="TP15SQ" value="TPSQTP15SQ" x="43.97375" y="59.3725" smashed="yes">
+<attribute name="TP_SIGNAL_NAME" value="" x="43.97375" y="56.8325" size="1" layer="37"/>
+<attribute name="NAME" x="45.12865" y="58.74385" size="1.27" layer="25"/>
+<attribute name="VALUE" x="43.21175" y="58.4835" size="0.0254" layer="27"/>
 </element>
-<element name="IC2" library="maxim" package="SO16" value="MAX3232CSE" x="21.2725" y="21.2725">
+<element name="IC2" library="maxim" package="SO16" value="MAX3232CSE" x="21.2725" y="21.2725" smashed="yes">
 <attribute name="OC_NEWARK" value="90C2890" x="21.2725" y="21.2725" size="5.08" layer="27" display="off"/>
 <attribute name="MPN" value="MAX3232CSE" x="21.2725" y="21.2725" size="5.08" layer="27" display="off"/>
 <attribute name="MF" value="" x="21.2725" y="21.2725" size="5.08" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="9725490" x="21.2725" y="21.2725" size="5.08" layer="27" display="off"/>
+<attribute name="VALUE" x="17.2085" y="20.6375" size="1.27" layer="27" ratio="10"/>
+<attribute name="NAME" x="14.1605" y="20.701" size="1.27" layer="25" ratio="10"/>
 </element>
 </elements>
 <signals>
@@ -2597,7 +2728,7 @@ design rules under a new name.</description>
 <contactref element="IC2" pad="16"/>
 <wire x1="16.8275" y1="24.3459" x2="14.23035" y2="24.3459" width="0.8128" layer="1"/>
 <wire x1="14.23035" y1="24.3459" x2="13.97" y2="24.60625" width="0.8128" layer="1"/>
-<wire x1="13.97" y1="24.60625" x2="13.97" y2="29.5275" width="0.8128" layer="1"/>
+<wire x1="13.97" y1="24.60625" x2="13.97" y2="29.5275" width="0" layer="19" extent="1-16"/>
 <wire x1="11.1125" y1="34.76625" x2="15.6715" y2="34.76625" width="0.6096" layer="1"/>
 <wire x1="15.6715" y1="34.76625" x2="15.71625" y2="34.56275" width="0.6096" layer="1"/>
 <wire x1="15.71625" y1="34.56275" x2="13.97" y2="29.5275" width="0" layer="19" extent="1-1"/>
@@ -2818,7 +2949,8 @@ design rules under a new name.</description>
 <signal name="VCC">
 <contactref element="TP3" pad="TP"/>
 <contactref element="TP4" pad="TP"/>
-<wire x1="13.97" y1="29.845" x2="13.97" y2="24.60625" width="0.8128" layer="1"/>
+<wire x1="13.97" y1="34.6075" x2="13.81125" y2="34.6075" width="0.8128" layer="1"/>
+<wire x1="13.81125" y1="34.6075" x2="13.81125" y2="34.925" width="0.8128" layer="1"/>
 <wire x1="13.97" y1="29.845" x2="13.97" y2="34.6075" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$39">

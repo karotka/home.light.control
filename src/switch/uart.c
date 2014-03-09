@@ -8,10 +8,10 @@ void UART_init() {
     UBRR0L = (uint8_t)UBRR_VALUE;
 
     // Set
-    UCSR0B = (1 << RXEN0) | (1 << TXEN0);    // Enable  receiver and transmitter
+    //UCSR0B = (1 << RXEN0);    // Enable receiver
+    UCSR0B = (1 << TXEN0);    // Enable transmiter
     UCSR0C = (1 << UCSZ00) | (1 << UCSZ01) | (1 << USBS0);  // set to 8 data bits, 2 stop bit
-
-    UCSR0B |= (1 << RXCIE0);
+    //UCSR0B |= (1 << RXCIE0);
 }
 
 void UART_puti(const int val){

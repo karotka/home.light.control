@@ -31,6 +31,7 @@ enum {btnOff = 0, btnOn, btnRelease};
 // Library initialization
 // Call this once to initialize the library functions and the ADC converter
 void TOUCH_init(void);
+void TOUCH_down(void);
 
 // The sense function evaluates the button state and performs internal
 inline void adc_channel(uint8_t channel);
