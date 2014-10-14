@@ -31,7 +31,7 @@ hex:  $(PRG).hex
 install: load
 
 load: $(PRG).hex
-	avrdude -P usb -p m16 -c $(ISP) -U flash:w:$<
+	avrdude -P usb -p m16 -c $(ISP) -U lfuse:w:0xE4:m -U flash:w:$<
 
 status:
 	avrdude -P usb -p m16 -c $(ISP) -v

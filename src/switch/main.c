@@ -2,19 +2,19 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <avr/sleep.h>
+#include <avr/power.h>
 #include <util/delay.h>
 #include "uart.h"
 #include "touch.h"
-#include <avr/power.h>
-//#include <mega328.h>
 //#include "twi.h"
 
+
 static touch_channel_t btn1 = {
-.mux = 0,
-     .port = &PORTC,
-     .portmask = (1 << PC0),
-.state = btnOff,
-.count = 0,
+    .mux = 0,
+    .port = &PORTC,
+    .portmask = (1 << PC0),
+    .state = btnOff,
+    .count = 0,
 };
 static touch_channel_t btn2 = {
     .mux = 1,

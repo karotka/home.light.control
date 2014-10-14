@@ -4,6 +4,7 @@
 #include <avr/sleep.h>
 #include <avr/power.h>
 #include <util/delay.h>
+#include <stdio.h>
 #include "uart.h"
 #include "touch.h"
 //#include "twi.h"
@@ -14,56 +15,56 @@ static touch_channel_t btn0 = {
     .port = &PORTA,
     .portmask = (1 << PA0),
     .state = btnOff,
-    .limit = 150,
+    .limit = 300,
 };
 static touch_channel_t btn1 = {
     .mux = 1,
     .port = &PORTA,
     .portmask = (1 << PA1),
     .state = btnOff,
-    .limit = 100,
+    .limit = 80,
 };
 static touch_channel_t btn2 = {
     .mux = 2,
     .port = &PORTA,
     .portmask = (1 << PA2),
     .state = btnOff,
-    .limit = 100,
+    .limit = 80,
 };
 static touch_channel_t btn3 = {
     .mux = 3,
     .port = &PORTA,
     .portmask = (1 << PA3),
     .state = btnOff,
-    .limit = 100,
+    .limit = 80,
 };
 static touch_channel_t btn4 = {
     .mux = 4,
     .port = &PORTA,
     .portmask = (1 << PA4),
     .state = btnOff,
-    .limit = 100,
+    .limit = 80,
 };
 static touch_channel_t btn5 = {
     .mux = 5,
     .port = &PORTA,
     .portmask = (1 << PA5),
     .state = btnOff,
-    .limit = 100,
+    .limit = 80,
 };
 static touch_channel_t btn6 = {
     .mux = 6,
     .port = &PORTA,
     .portmask = (1 << PA6),
     .state = btnOff,
-    .limit = 100,
+    .limit = 80,
 };
 static touch_channel_t btn7 = {
     .mux = 7,
     .port = &PORTA,
     .portmask = (1 << PA7),
     .state = btnOff,
-    .limit = 130,
+    .limit = 300,
 };
 
 
@@ -164,13 +165,9 @@ void timer0Init(void) {
 }
 
 int main(void) {
-    //volatile uint8_t TWI_slaveAddress;
 
     pinsInit();
     timer0Init();
-
-    //readAddress(&PINB, &TWI_slaveAddress);
-    //TWI_slaveAddress = 0x20;
 
     _delay_ms(200);
     sei();
@@ -182,9 +179,19 @@ int main(void) {
     TOUCH_init();
 
     uint8_t i;
+
+    //char chr[100];
+    //uint16_t val;
+
     for(;;) {
 
+        //sprintf (chr, "0: %d, 1: %d, 2: %d, 3: %d, 4: %d, 5: %d, 6: %d, 7: %d \n",
+        //    btn0.state, btn1.state, btn2.state, btn3.state, btn4.state, btn5.state, btn6.state, btn7.state);
+        //UART_puts(chr);
+        //_delay_ms(100);
         if (lastValue != value) {
+            // high - enable trancseiver
+            PORTD |= (1 << PD2);
             for (i = 0; i < 4; i++) {
                 PORTB ^= (1 << PB4);
                 UART_putc((char)value);
@@ -198,14 +205,8 @@ int main(void) {
             PORTD &= ~(1 << PD3);
             PORTD &= ~(1 << PD4);
         }
-
-        //if (!TWI_TransceiverBusy()) {
-        //    //PORTD |= (1 << PD7);
-        //    if (TWI_statusReg.RxDataInBuf) {
-        //        TWI_GetDataFromTransceiver(&temp, 1);
-        //    }
-        //    TWI_StartTransceiverWithData(&temp, 1);
-        //}
+        // low - enable receiver
+        PORTD &= ~(1 << PD2);
     }
 }
 
@@ -223,32 +224,4 @@ void pinsInit(void) {
 
     DDRD  |= (1 << PD3) | (1 << PD4);
     DDRD  |= (1 << PD2);
-}
-
-void readAddress(volatile uint8_t *port, volatile uint8_t *addr) {
-
-    if(bit_is_set(*port, PB0)) {
-        *addr = (1 << 0);
-    }
-    if(bit_is_set(*port, PB1)) {
-        *addr |= (1 << 1);
-    }
-    if(bit_is_set(*port, PB2)) {
-        *addr |= (1 << 2);
-    }
-    if(bit_is_set(*port, PB3)) {
-        *addr |= (1 << 3);
-    }
-    if(bit_is_set(*port, PB4)) {
-        *addr |= (1 << 4);
-    }
-    if(bit_is_set(*port, PB5)) {
-        *addr |= (1 << 5);
-    }
-    if(bit_is_set(*port, PB6)) {
-        *addr |= (1 << 6);
-    }
-    if(bit_is_set(*port, PB7)) {
-        *addr |= (1 << 7);
-    }
 }
