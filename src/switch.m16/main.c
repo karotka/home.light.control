@@ -1,4 +1,3 @@
-#define F_CPU 8000000UL
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <avr/sleep.h>
@@ -72,10 +71,9 @@ void watchDogInit(void);
 void pinsInit(void);
 void pinsInit(void);
 void timer0Init(void);
-//void readAddress(volatile uint8_t *port, volatile uint8_t *addr);
 
 volatile uint8_t value = 0;
-volatile uint8_t lastValue = 0;
+volatile uint8_t send = 0;
 
 void handleButtons(void) {
     btn_set(&btn0);
@@ -88,6 +86,7 @@ void handleButtons(void) {
     btn_set(&btn7);
 
     if (btn1.state == btnOn) {
+        send = 1;
         if (btn2.state == btnOn) {
             value = 2;
             return;
@@ -98,6 +97,7 @@ void handleButtons(void) {
     }
 
     if (btn2.state == btnOn) {
+        send = 1;
         if (btn3.state == btnOn) {
             value = 4;
             return;
@@ -108,6 +108,7 @@ void handleButtons(void) {
     }
 
     if (btn3.state == btnOn) {
+        send = 1;
         if (btn4.state == btnOn) {
             value = 6;
             return;
@@ -118,6 +119,7 @@ void handleButtons(void) {
     }
 
     if (btn4.state == btnOn) {
+        send = 1;
         if (btn5.state == btnOn) {
             value = 8;
             return;
@@ -128,6 +130,7 @@ void handleButtons(void) {
     }
 
     if (btn5.state == btnOn) {
+        send = 1;
         if (btn6.state == btnOn) {
             value = 10;
             return;
@@ -138,17 +141,20 @@ void handleButtons(void) {
     }
 
     if (btn6.state == btnOn) {
+        send = 1;
         value = 11;
         return;
     }
 
     if (btn7.state == btnOn) {
+        send = 1;
         value = 16;
         return;
     }
 
     // handle off
     if (btn0.state == btnRelease) {
+        send = 1;
         value = 0;
         return;
     }
@@ -189,24 +195,26 @@ int main(void) {
         //    btn0.state, btn1.state, btn2.state, btn3.state, btn4.state, btn5.state, btn6.state, btn7.state);
         //UART_puts(chr);
         //_delay_ms(100);
-        if (lastValue != value) {
+        if (send == 1) {
             // high - enable trancseiver
             PORTD |= (1 << PD2);
-            for (i = 0; i < 4; i++) {
+            for (i = 0; i < 5; i++) {
                 PORTB ^= (1 << PB4);
                 UART_putc((char)value);
                 _delay_ms(20);
-                lastValue = value;
             }
+            send = 0;
         }
+        // low - enable receiver
+        PORTD &= ~(1 << PD2);
+
+        // switch off background light
         if (value == 0) {
             PORTD |= (1 << PD3) | (1 << PD4);
         } else {
             PORTD &= ~(1 << PD3);
             PORTD &= ~(1 << PD4);
         }
-        // low - enable receiver
-        PORTD &= ~(1 << PD2);
     }
 }
 

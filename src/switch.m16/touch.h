@@ -1,7 +1,6 @@
 /*
  *
  */
-#define F_CPU 8000000UL
 #ifndef TOUCH_H_
 #define TOUCH_H_
 #include <avr/io.h>

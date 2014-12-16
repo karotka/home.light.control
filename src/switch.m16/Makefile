@@ -3,6 +3,7 @@ OBJ            = main.o uart.o twi.o touch.c
 MCU_TARGET     = atmega16
 OPTIMIZE       = -O2
 ISP            = usbtiny
+F_CPU          = 8000000
 
 # You should not have to change anything below here.
 
@@ -10,7 +11,7 @@ CC             = avr-gcc
 
 # Override is only needed by avr-lib build system.
 
-override CFLAGS =  -Wall $(OPTIMIZE) -mmcu=$(MCU_TARGET) $(DEFS)
+override CFLAGS =  -Wall $(OPTIMIZE) -mmcu=$(MCU_TARGET) $(DEFS) -DF_CPU=$(F_CPU)
 
 OBJCOPY        = avr-objcopy
 OBJDUMP        = avr-objdump
