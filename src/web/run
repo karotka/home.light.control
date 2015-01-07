@@ -1,0 +1,5 @@
+#!/bin/bash
+PATH=/Users/karotka/git/ws/
+
+export APPSETTINGS=${PATH}conf/config.conf
+/usr/bin/python index.py

@@ -1,0 +1,50 @@
+<html>
+<head>
+
+<script>
+    var WS = '__WS__';
+</script>
+
+<script src="/static/js/angular.min.js"></script>
+<script src="/static/js/script.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/styles.css" media="screen, projection" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body ng-app="app">
+    <div class="header">
+        <h1>Home light controller</h1>
+    </div>
+
+    <div class="page" ng-controller="MyCtrl">
+
+        <div ng-repeat="message in messages"  class="tbl">
+            <div class="id">{{message.id}} [{{message.value}}]</div>
+            <div></div>
+
+            <div class="range">
+                <input type="range" min="0" max="16"
+                    value="{{message.value}}"
+                    ng-model="message.value"
+                    ng-mouseup="updateSlider({{message.id}})"
+                />
+            </div>
+
+            <div class="check-box">
+                <input id="cb{{message.id}}" type="checkbox" name="message[]"
+                    ng-model="message.isChecked" ng-click="setCheckbox({{message.id}})" />
+                <label for="cb{{message.id}}"></label>
+            </div>
+
+            <div class="last-update">{{message.lastUpdate}}</div>
+        </div>
+
+        <div class="last-update">
+            Server time: {{lastUpdate}}
+        </div>
+
+    </div>
+  </body>
+</html>
