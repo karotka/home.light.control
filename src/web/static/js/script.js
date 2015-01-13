@@ -86,4 +86,4 @@ function MyCtrl($scope, ChatService) {
 
 }
 
-//setInterval(function () { ws.send("")}, 2000);
+setInterval(function () { ws.send("")}, 2000);

@@ -20,7 +20,7 @@ sockets = Sockets(app)
 log = logging.getLogger(__name__)
 
 
-class UpdateThread(threading.Thread)
+class UpdateThread(threading.Thread):
     def run(ws):
         log.info("Update thread started <%s>." % ws)
         while True:
@@ -61,9 +61,9 @@ def handle_websocket(ws):
 
     threadId = None
     while True:
-        if not threadId:
-            threadId = thread.start_new_thread(update, (ws, ))
-            log.info("Start update thread: %s", threadId)
+        #if not threadId:
+        #    threadId = thread.start_new_thread(update, (ws, ))
+        #    log.info("Start update thread: %s", threadId)
 
         # waiting for message
         m = ws.receive()

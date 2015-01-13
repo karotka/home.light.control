@@ -1,5 +1,5 @@
 #!/bin/bash
-PATH=/Users/karotka/git/ws/
+PATH=/Users/karotka/git/home.light.control/src/web/
 
 export APPSETTINGS=${PATH}conf/config.conf
 /usr/bin/python index.py
