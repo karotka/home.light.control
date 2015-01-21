@@ -1,5 +1,10 @@
 var app = angular.module('app', []);
-var ws = new WebSocket(WS);
+//var ws = new WebSocket("ws://127.0.0.1:8080/ws");
+var ws = io.connect("ws://127.0.0.1:8080/ws");
+
+ws.on('connect', function() {
+    alert("connected");
+});
 
 app.factory('ChatService', function() {
     var service = {};
@@ -7,25 +12,18 @@ app.factory('ChatService', function() {
     service.connect = function() {
 
         if(service.ws) { return; }
+        //if(service.wsUp) { return; }
 
         ws.onopen = function() {
             console.info("Succeeded to open a connection");
         };
-
         ws.onerror = function() {
             alert("Failed to open a connection");
         }
-
         ws.onmessage = function(message) {
             service.callback(message.data);
-            console.info("Recieve data:" + message.data);
         };
-
         service.ws = ws;
-    }
-
-    service.send = function() {
-        ws.send("");
     }
 
     service.subscribe = function(callback) {
@@ -41,14 +39,23 @@ function MyCtrl($scope, ChatService) {
 
     ChatService.subscribe(function(data) {
         var obj = angular.fromJson(data);
-        $scope.messages = obj.rows;
-        $scope.lastUpdate = obj.lastUpdate;
+        if (obj.action == "load") {
+            $scope.messages = obj.rows;
+            $scope.lastUpdate = obj.lastUpdate;
 
-        for (i = 0; i < obj.rows.length; i++) {
-            if (obj.rows[i].value > 0) {
-                $scope.messages[i].isChecked = true;
-            } else {
-                $scope.messages[i].isChecked = false;
+            for (i = 0; i < obj.rows.length; i++) {
+                if (obj.rows[i].value > 0) {
+                    $scope.messages[i].isChecked = true;
+                } else {
+                    $scope.messages[i].isChecked = false;
+                }
+            }
+        }
+        if (obj.action == "update") {
+            for (i = 0; i < $scope.messages; i++) {
+                if ($scope.messages[i].id == obj.rows[i].id) {
+                    $scope.messages[i].value = obj.rows[i].value;
+                }
             }
         }
 
@@ -78,7 +85,9 @@ function MyCtrl($scope, ChatService) {
                 } else {
                     $scope.messages[i].isChecked = false;
                 }
-                ws.send(angular.toJson($scope.messages[i]));
+                console.info("Sending data ws:" + angular.toJson($scope.messages[i]));
+                var s = ws.send(angular.toJson($scope.messages[i]));
+                console.info("Result:" + s);
                 break;
             }
         }
@@ -86,4 +95,4 @@ function MyCtrl($scope, ChatService) {
 
 }
 
-setInterval(function () { ws.send("")}, 2000);
+//setInterval(function () { ws.send("")}, 2000);
