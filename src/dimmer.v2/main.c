@@ -71,7 +71,7 @@ int main(void) {
 
     UART_init();
     pinsInit();
-    //pwmInit();
+    pwmInit();
     //timer2Init();
 
     unsigned char messageBuf[TWI_BUFFER_SIZE];
@@ -89,7 +89,7 @@ int main(void) {
 
     OCR0B = 0;
 
-    //    char s[100];
+    char s[100];
     uint8_t temp;
     while (1) {
 
@@ -107,7 +107,8 @@ int main(void) {
                 }
             }
         }
-        //_delay_ms(500);
+        //_delay_ms(200);
+        //sprintf (s, "Value: %d\n", value); UART_puts(s);
         OCR0B = dimmerSteps[value];
     }
 

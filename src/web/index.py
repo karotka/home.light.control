@@ -1,50 +1,42 @@
-import os
-import sqlite3
-import json
-import datetime
-import logging
-import threading
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+from gevent import monkey
+monkey.patch_all()
+import ConfigParser
+from myapp import baseApp
+from flask import Flask, render_template
+from flask.ext.socketio import SocketIO, emit
+from logging.handlers import RotatingFileHandler
+from threading import Thread
 
+import sqlite3
+import datetime
+import json
+import logging
 import time
 
-from flask import Flask
-from flask_sockets import Sockets
-from logging.handlers import RotatingFileHandler
-
-from gevent.pywsgi import WSGIServer
-from geventwebsocket.handler import WebSocketHandler
-from geventwebsocket import WebSocketError
-
-app = Flask(__name__)
-sockets = Sockets(app)
+app = Flask(
+    __name__,
+    static_folder = baseApp.config.get("WebServer", "StaticDir"),
+    static_url_path = "/static",
+    template_folder = baseApp.config.get("WebServer", "TemplateDir")
+)
+socketio = SocketIO(app)
 log = logging.getLogger(__name__)
+clientsConnected = 0
 
-s = []
-
-def wsgi_app(environ, start_response):
-    path = environ["PATH_INFO"]
-    if path == "/":
-        return app(environ, start_response)
-    elif path == "/ws":
-        s.append(environ["wsgi.websocket"])
-        log.info(">>>>>> %s" % (s))
-        global t
-        t = threading.Thread(target = workerWebsocket, args=(environ["wsgi.websocket"], ))
-        t.start()
-        handle_websocket(environ["wsgi.websocket"])
-    else:
-        return app(environ, start_response)
-
-def workerWebsocket(ws):
+def backgroundThread():
     log.info("Run update worker ...")
 
     conn = getConnection()
     c = conn.cursor()
 
-    while True:
+    global clientsConnected
+    while True and clientsConnected > 0:
+        log.info("Running ....")
+
         res = getNewItem()
-        res["action"] = "update"
-        c.execute("SELECT id, lastUpdate, value FROM light WHERE state=1")
+        c.execute("SELECT id, lastUpdate, value FROM light WHERE state=2")
         for row in c.fetchall():
             data = {
                 "id" : row[0],
@@ -54,43 +46,32 @@ def workerWebsocket(ws):
             res["rows"].append(data)
 
         if len(res["rows"]):
-            log.info("Sockets %s" % (s))
-            for ss in s:
-                log.info("Update to web-> %s %s" % (res, ss))
-                ss.emit("message", json.dumps(res))
+            socketio.emit("recv:updateAll", {"data" : res}, namespace = "/ws")
             c.execute("UPDATE light SET state=0")
         conn.commit()
-
-        time.sleep(0.5)
-
-@sockets.route('/ws')
-def handle_websocket(ws):
-    log.info("Handle set websocket ...")
-
-    conn = getConnection()
-    c = conn.cursor()
-
-    send(ws, json.dumps(findAll(c)))
-
-    while True:
-        # waiting for message
-        m = ws.receive()
-        log.info("receive <%s> on socket <%s>" % (m, ws))
-
-        if m:
-            item = json.loads(m)
-            c.execute("UPDATE light SET lastUpdate=DATETIME('now'), "
-                      "value=?, state=1 WHERE id=?", (item["value"], item["id"]) )
-            #log.info("%s" % item)
-            conn.commit()
+        time.sleep(2)
 
 @app.route('/')
 def index():
-    log.info("Serving page.html")
-    page = open('templates/index.html').read()
-    page = page.\
-            replace("__WS__", app.config.get("WS"))
-    return page
+    return open('templates/index.html').read()
+
+@socketio.on('send:updateSlider', namespace='/ws')
+def updateSlider(message):
+    log.info("Handle set websocket ...")
+
+    m = message["message"]
+    conn = getConnection()
+    c = conn.cursor()
+
+    # waiting for message
+    log.info("Receive: %s" % (m, ))
+
+    if m:
+        item = json.loads(m)
+        c.execute("UPDATE light SET lastUpdate=DATETIME('now'), "
+            "value=?, state=1 WHERE id=?", (item["value"], item["id"]) )
+        conn.commit()
+        emit("recv:updateOneSlider", {"data" : m}, broadcast = True)
 
 def findAll(c):
     res = getNewItem()
@@ -102,11 +83,34 @@ def findAll(c):
             "value" : row[2]
         }
         res["rows"].append(data)
-    log.info("Update web-> %s", res)
+    #log.info("Update web-> %s", res)
     return res
 
+@socketio.on('connect', namespace='/ws')
+def connect():
+    global clientsConnected
+    log.info("...>>>>>> %d <<<<<< ........" % clientsConnected)
+    clientsConnected += 1
+    if clientsConnected > 0:
+        log.info("...........%d clients connected" % clientsConnected)
+        thread = Thread(target = backgroundThread)
+        thread.start()
+
+    conn = getConnection()
+    c = conn.cursor()
+    res = json.dumps(findAll(
+    log.info("New client connected to the server. "
+             "Total %d connected." % clientsConnected)
+    emit('init', res)
+
+@socketio.on('disconnect', namespace='/ws')
+def disconnect():
+    global clientsConnected
+    clientsConnected -= 1
+    log.info("Client disconnected from the server %d clients connected" % clientsConnected)
+
 def getConnection():
-    return sqlite3.connect(app.config.get("DBFILE"))
+    return baseApp.db
 
 def getNewItem():
     res = dict()
@@ -117,32 +121,18 @@ def getNewItem():
             now.year, now.month, now.day, now.hour, now.minute, now.second)
     return res
 
-def send(socket, data):
-    try:
-        socket.send(data)
-    except WebSocketError, e:
-        log.info("Sending data to closed socked")
+if __name__ == '__main__':
+    app.debug = bool(baseApp.config.getint("Log", "AppDebug"))
 
-def start():
-    app.config.from_envvar('APPSETTINGS')
-
-    handler = RotatingFileHandler('logs/debug_log', maxBytes = 10000, backupCount = 1)
+    handler = RotatingFileHandler(baseApp.config.get("Log", "LogFile"), maxBytes = 10000, backupCount = 1)
     handler.setLevel(logging.INFO)
     formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s %(name)s')
     handler.setFormatter(formatter)
     log.addHandler(handler)
     logging.basicConfig(level = logging.INFO)
 
-    server, port = app.config.get('SERVER'), app.config.get('PORT')
-    httpServer = WSGIServer((server, port),
-            wsgi_app, handler_class = WebSocketHandler)
-
-    log.info("Server started at %s:%s" % (server, port))
-
-    try:
-        httpServer.serve_forever()
-    except KeyboardInterrupt:
-        exit()
-
-if __name__ == "__main__":
-    start()
+    socketio.run(
+        app,
+        baseApp.config.get("WebServer", "Host"),
+        baseApp.config.getint("WebServer", "Port")
+    )

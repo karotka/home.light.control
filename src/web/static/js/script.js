@@ -1,43 +1,34 @@
 var app = angular.module('app', []);
-//var ws = new WebSocket("ws://127.0.0.1:8080/ws");
-var ws = io.connect("ws://127.0.0.1:8080/ws");
 
-ws.on('connect', function() {
-    alert("connected");
+app.factory('socket', function ($rootScope) {
+  var socket = io.connect("ws://127.0.0.1:8080/ws");
+  return {
+    on: function (eventName, callback) {
+      socket.on(eventName, function () {
+        var args = arguments;
+        $rootScope.$apply(function () {
+          callback.apply(socket, args);
+        });
+      });
+    },
+    emit: function (eventName, data, callback) {
+      socket.emit(eventName, data, function () {
+        var args = arguments;
+        $rootScope.$apply(function () {
+          if (callback) {
+            callback.apply(socket, args);
+          }
+        });
+      })
+    }
+  };
 });
 
-app.factory('ChatService', function() {
-    var service = {};
+function MyCtrl($scope, socket) {
 
-    service.connect = function() {
-
-        if(service.ws) { return; }
-        //if(service.wsUp) { return; }
-
-        ws.onopen = function() {
-            console.info("Succeeded to open a connection");
-        };
-        ws.onerror = function() {
-            alert("Failed to open a connection");
-        }
-        ws.onmessage = function(message) {
-            service.callback(message.data);
-        };
-        service.ws = ws;
-    }
-
-    service.subscribe = function(callback) {
-        service.callback = callback;
-    }
-
-    return service;
-});
-
-function MyCtrl($scope, ChatService) {
     $scope.messages = [];
-    ChatService.connect();
 
-    ChatService.subscribe(function(data) {
+    socket.on('init', function(data) {
         var obj = angular.fromJson(data);
         if (obj.action == "load") {
             $scope.messages = obj.rows;
@@ -51,48 +42,61 @@ function MyCtrl($scope, ChatService) {
                 }
             }
         }
-        if (obj.action == "update") {
-            for (i = 0; i < $scope.messages; i++) {
-                if ($scope.messages[i].id == obj.rows[i].id) {
-                    $scope.messages[i].value = obj.rows[i].value;
-                }
+    });
+
+    socket.on('recv:updateAll', function(data) {
+        var obj = angular.fromJson(data.data.rows);
+        for (i = 0; i < $scope.messages.length; i++) {
+            if ($scope.messages[i].id == obj[i].id) {
+                $scope.messages[i].value = obj[i].value;
             }
         }
+    });
 
-        //console.info(obj.rows);
-        $scope.$apply(obj.rows);
+    socket.on('recv:updateOneSlider', function(data) {
+        var obj = angular.fromJson(data.data);
+        for (i = 0; i < $scope.messages.length; i++) {
+            if ($scope.messages[i].id == obj.id) {
+                $scope.messages[i].value = obj.value;
+                break;
+            }
+        }
     });
 
     $scope.setCheckbox = function(id) {
         for (i = 0; i < $scope.messages.length; i++) {
             if ($scope.messages[i].id == id) {
                 if ($scope.messages[i].value == 0 && $scope.messages[i].isChecked) {
-                    $scope.messages[i].value = 255;
+                    $scope.messages[i].value = 16;
                 } else {
                     $scope.messages[i].value = 0;
                 }
-                ws.send(angular.toJson($scope.messages[i]));
+                $scope.sendMessage(angular.toJson($scope.messages[i]));
                 break;
             }
         }
+    };
+
+    $scope.sendMessage = function (data) {
+        socket.emit('send:updateSlider', {
+          message: data
+        });
     };
 
     $scope.updateSlider = function(id) {
         for (i = 0; i < $scope.messages.length; i++) {
             if ($scope.messages[i].id == id) {
-                if ($scope.messages[i].value > 0 && !$scope.messages[i].isChecked) {
+                if ($scope.messages[i].value > 0) {
                     $scope.messages[i].isChecked = true;
                 } else {
                     $scope.messages[i].isChecked = false;
                 }
-                console.info("Sending data ws:" + angular.toJson($scope.messages[i]));
-                var s = ws.send(angular.toJson($scope.messages[i]));
-                console.info("Result:" + s);
+                //console.info("Sending data ws:" + angular.toJson($scope.messages[i]));
+                $scope.sendMessage(angular.toJson($scope.messages[i]));
                 break;
             }
         }
     };
-
 }
 
 //setInterval(function () { ws.send("")}, 2000);

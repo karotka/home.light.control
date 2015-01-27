@@ -5,7 +5,7 @@
     var WS = '__WS__';
     var WSUP = '__WSUP__';
 </script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+<script type="text/javascript" src="/static/js/socket.io.min.js"></script>
 <script src="/static/js/angular.min.js"></script>
 <script src="/static/js/script.js"></script>
 <link rel="stylesheet" type="text/css" href="/static/css/styles.css" media="screen, projection" />
@@ -35,7 +35,8 @@
 
             <div class="check-box">
                 <input id="cb{{message.id}}" type="checkbox" name="message[]"
-                    ng-model="message.isChecked" ng-click="setCheckbox({{message.id}})" />
+                    ng-model="message.isChecked" ng-click="setCheckbox({{message.id}})"
+                    ng-touchmove="setCheckbox({{message.id}})" />
                 <label for="cb{{message.id}}"></label>
             </div>
 
