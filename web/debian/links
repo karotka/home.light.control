@@ -1,0 +1,6 @@
+/usr/bin/svinit /etc/init.d/szn-sklik-importweb
+/www/nginx-extras/sbin/nginx /www/sklik/importweb/bin/importweb
+/www/sklik/importweb/log /www/logy/www/szn-sklik-importweb
+/www/sklik/importweb/savedfiles /www/logy/www/szn-sklik-importweb-savedfiles
+/www/sklik/importweb/service /service/szn-sklik-importweb
+/www/sklik/importweb/service-uwsgi /service/szn-sklik-importweb_uwsgi

@@ -89,16 +89,15 @@ def findAll(c):
 @socketio.on('connect', namespace='/ws')
 def connect():
     global clientsConnected
-    log.info("...>>>>>> %d <<<<<< ........" % clientsConnected)
     clientsConnected += 1
+    #log.info("New client connected %d." % clientsConnected)
     if clientsConnected > 0:
-        log.info("...........%d clients connected" % clientsConnected)
         thread = Thread(target = backgroundThread)
         thread.start()
 
     conn = getConnection()
     c = conn.cursor()
-    res = json.dumps(findAll(
+    res = json.dumps(findAll(c))
     log.info("New client connected to the server. "
              "Total %d connected." % clientsConnected)
     emit('init', res)

@@ -1,0 +1,24 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+DEBIAN:=$(CURDIR)/debian
+PROJECT:=importweb
+PACKAGE:=szn-sklik-$(PROJECT)
+BASEDIR:=$(DEBIAN)/$(PACKAGE)/www/sklik/$(PROJECT)
+
+%:
+	dh $@ --with python2
+
+override_dh_auto_install:
+	python setup.py install --force --no-compile -O0 --single-version-externally-managed --install-purelib=$(BASEDIR)/server --record=$(DEBIAN)/$(PACKAGE).egg.log
+
+override_dh_python2:
+	dh_python2
+	rm -rf $(BASEDIR)/server/$(PROJECT)-*.egg-info
+
+override_dh_fixperms:
+	dh_fixperms
+	chmod +x $(BASEDIR)/server/app.py
+	chmod +x $(BASEDIR)/server/test.py

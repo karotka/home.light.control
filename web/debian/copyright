@@ -1,0 +1,8 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: szn-sklik-importweb
+Source: http://cml.kancelar.seznam.cz/sklik/browser/webs/importweb
+
+Files: *
+Copyright: Copyright 2014 Seznam.cz a.s.
+License: Private
+ -

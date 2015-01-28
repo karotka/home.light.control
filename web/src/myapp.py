@@ -8,7 +8,7 @@ class BaseApp:
 
     def __init__(self):
         self.config = ConfigParser.ConfigParser()
-        self.config.read("conf/config.conf")
+        self.config.read("../conf/config.conf")
         self.db = sqlite3.connect(self.config.get("Sql", "Datafile"))
 
 baseApp = BaseApp()

@@ -1,0 +1,3 @@
+conf/* /www/sklik/importweb/conf/
+service/* /www/sklik/importweb/service/
+service-uwsgi/* /www/sklik/importweb/service-uwsgi/

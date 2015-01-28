@@ -1,0 +1,25 @@
+Source: szn-sklik-importweb
+Section: web
+Priority: extra
+Maintainer: Sklik DB <sklik.db@firma.seznam.cz>
+Build-Depends:
+ debhelper (>= 8),
+ python,
+ python-setuptools
+Standards-Version: 3.9.4
+X-Python-Version: >= 2.6
+
+Package: szn-sklik-importweb
+Architecture: all
+Depends:
+ ${python:Depends},
+ ${misc:Depends},
+ python,
+ szn-logy,
+ szn-nginx-extras (>= 1.4.3-3),
+ szn-python-dbglogger (>= 1.2.2),
+ szn-python-flask (>= 0.9),
+ szn-python-url(>=1.0.1),
+ szn-uwsgi (>= 1.9.15)
+Description: Sklik Importer-web
+ Webova aplikace pro nahrani a zpracovani souboru importu pro Sklik
