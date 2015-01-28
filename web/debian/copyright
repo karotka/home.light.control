@@ -1,8 +1,8 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: szn-sklik-importweb
-Source: http://cml.kancelar.seznam.cz/sklik/browser/webs/importweb
+Upstream-Name: hlc-web
+Source: https://github.com/karotka/home.light.control
 
 Files: *
-Copyright: Copyright 2014 Seznam.cz a.s.
+Copyright: Copyright 2015 Karotka.cz
 License: Private
  -
