@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.025" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
@@ -15116,7 +15116,10 @@ super fast rectifier, 2 A</description>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="D1" library="diode" deviceset="ES2D" device=""/>
 <part name="C3" library="rcl" deviceset="CPOL-EU" device="SMCC"/>
-<part name="R14" library="rcl" deviceset="R-EU_" device="R1206" value="10k"/>
+<part name="R14" library="rcl" deviceset="R-EU_" device="R1206" value="0"/>
+<part name="R15" library="rcl" deviceset="R-EU_" device="R1206" value="4k7"/>
+<part name="LED7" library="led" deviceset="LED" device="SML1206"/>
+<part name="GND15" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -15135,9 +15138,9 @@ super fast rectifier, 2 A</description>
 <instance part="GND10" gate="1" x="-42.545" y="58.42"/>
 <instance part="+12V" gate="G$1" x="-74.295" y="81.28" rot="R90"/>
 <instance part="GND13" gate="1" x="-58.42" y="59.055"/>
-<instance part="R16" gate="G$1" x="60.325" y="48.26"/>
+<instance part="R16" gate="G$1" x="57.785" y="48.26"/>
 <instance part="LED1" gate="G$1" x="46.99" y="48.26" rot="R90"/>
-<instance part="GND16" gate="1" x="65.405" y="45.085"/>
+<instance part="GND16" gate="1" x="62.865" y="45.085"/>
 <instance part="LED3" gate="G$1" x="59.69" y="16.51" rot="R90"/>
 <instance part="LED4" gate="G$1" x="51.435" y="16.51" rot="R90"/>
 <instance part="LED5" gate="G$1" x="51.435" y="10.16" rot="R90"/>
@@ -15190,14 +15193,23 @@ super fast rectifier, 2 A</description>
 <instance part="SUPPLY1" gate="G$1" x="107.95" y="45.72" rot="R270"/>
 <instance part="GND14" gate="1" x="105.41" y="22.86"/>
 <instance part="GND9" gate="1" x="80.01" y="22.86"/>
-<instance part="R10" gate="G$1" x="52.07" y="35.56" rot="R270"/>
-<instance part="R13" gate="G$1" x="58.42" y="35.56" rot="R270"/>
-<instance part="SUPPLY7" gate="G$1" x="46.355" y="40.64" rot="R90"/>
+<instance part="R10" gate="G$1" x="69.215" y="35.56" smashed="yes" rot="R270">
+<attribute name="NAME" x="71.9836" y="37.465" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="66.548" y="32.385" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="R13" gate="G$1" x="64.135" y="35.56" smashed="yes" rot="R270">
+<attribute name="NAME" x="65.6336" y="37.465" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="61.468" y="32.385" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="SUPPLY7" gate="G$1" x="69.215" y="43.815"/>
 <instance part="GND6" gate="1" x="-66.675" y="59.055"/>
 <instance part="GND11" gate="1" x="-66.675" y="74.93" rot="R180"/>
 <instance part="D1" gate="G$1" x="-66.675" y="81.28"/>
 <instance part="C3" gate="G$1" x="-58.42" y="70.485"/>
 <instance part="R14" gate="G$1" x="-66.675" y="66.675" rot="R90"/>
+<instance part="R15" gate="G$1" x="45.085" y="38.1"/>
+<instance part="LED7" gate="G$1" x="52.705" y="38.1" rot="R90"/>
+<instance part="GND15" gate="1" x="57.785" y="35.56"/>
 </instances>
 <busses>
 </busses>
@@ -15211,7 +15223,7 @@ super fast rectifier, 2 A</description>
 <segment>
 <pinref part="R16" gate="G$1" pin="2"/>
 <pinref part="GND16" gate="1" pin="GND"/>
-<wire x1="65.405" y1="48.26" x2="65.405" y2="47.625" width="0.1524" layer="91"/>
+<wire x1="62.865" y1="48.26" x2="62.865" y2="47.625" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="LED3" gate="G$1" pin="C"/>
@@ -15335,6 +15347,10 @@ super fast rectifier, 2 A</description>
 <pinref part="GND6" gate="1" pin="GND"/>
 <pinref part="R14" gate="G$1" pin="1"/>
 </segment>
+<segment>
+<pinref part="LED7" gate="G$1" pin="C"/>
+<pinref part="GND15" gate="1" pin="GND"/>
+</segment>
 </net>
 <net name="+12V" class="0">
 <segment>
@@ -15378,7 +15394,7 @@ super fast rectifier, 2 A</description>
 <segment>
 <pinref part="LED1" gate="G$1" pin="C"/>
 <pinref part="R16" gate="G$1" pin="1"/>
-<wire x1="55.245" y1="48.26" x2="52.07" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="52.705" y1="48.26" x2="52.07" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$37" class="0">
@@ -15462,27 +15478,27 @@ super fast rectifier, 2 A</description>
 <net name="N$10" class="0">
 <segment>
 <pinref part="MEGA16A" gate="G$1" pin="PC0(SCL)"/>
-<wire x1="37.465" y1="22.86" x2="58.42" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="58.42" y1="22.86" x2="74.295" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="37.465" y1="22.86" x2="64.135" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="64.135" y1="22.86" x2="74.295" y2="22.86" width="0.1524" layer="91"/>
 <wire x1="74.295" y1="22.86" x2="74.295" y2="40.64" width="0.1524" layer="91"/>
 <wire x1="74.295" y1="40.64" x2="80.01" y2="40.64" width="0.1524" layer="91"/>
 <pinref part="TEMP_SENZ" gate="G$1" pin="SCL"/>
 <pinref part="R13" gate="G$1" pin="2"/>
-<wire x1="58.42" y1="30.48" x2="58.42" y2="22.86" width="0.1524" layer="91"/>
-<junction x="58.42" y="22.86"/>
+<wire x1="64.135" y1="30.48" x2="64.135" y2="22.86" width="0.1524" layer="91"/>
+<junction x="64.135" y="22.86"/>
 </segment>
 </net>
 <net name="N$11" class="0">
 <segment>
 <wire x1="71.755" y1="45.72" x2="71.755" y2="25.4" width="0.1524" layer="91"/>
 <pinref part="MEGA16A" gate="G$1" pin="PC1(SDA)"/>
-<wire x1="71.755" y1="25.4" x2="52.07" y2="25.4" width="0.1524" layer="91"/>
-<wire x1="52.07" y1="25.4" x2="37.465" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="71.755" y1="25.4" x2="69.215" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="69.215" y1="25.4" x2="37.465" y2="25.4" width="0.1524" layer="91"/>
 <wire x1="71.755" y1="45.72" x2="80.01" y2="45.72" width="0.1524" layer="91"/>
 <pinref part="TEMP_SENZ" gate="G$1" pin="SDA"/>
 <pinref part="R10" gate="G$1" pin="2"/>
-<wire x1="52.07" y1="30.48" x2="52.07" y2="25.4" width="0.1524" layer="91"/>
-<junction x="52.07" y="25.4"/>
+<wire x1="69.215" y1="30.48" x2="69.215" y2="25.4" width="0.1524" layer="91"/>
+<junction x="69.215" y="25.4"/>
 </segment>
 </net>
 <net name="N$15" class="0">
@@ -15560,10 +15576,10 @@ super fast rectifier, 2 A</description>
 <segment>
 <pinref part="SUPPLY7" gate="G$1" pin="VCC"/>
 <pinref part="R10" gate="G$1" pin="1"/>
-<wire x1="48.895" y1="40.64" x2="52.07" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="69.215" y1="41.275" x2="69.215" y2="40.64" width="0.1524" layer="91"/>
 <pinref part="R13" gate="G$1" pin="1"/>
-<wire x1="58.42" y1="40.64" x2="52.07" y2="40.64" width="0.1524" layer="91"/>
-<junction x="52.07" y="40.64"/>
+<wire x1="64.135" y1="40.64" x2="69.215" y2="40.64" width="0.1524" layer="91"/>
+<junction x="69.215" y="40.64"/>
 </segment>
 </net>
 <net name="N$20" class="0">
@@ -15674,6 +15690,25 @@ super fast rectifier, 2 A</description>
 <wire x1="-58.42" y1="73.025" x2="-58.42" y2="81.28" width="0.1524" layer="91"/>
 <junction x="-58.42" y="81.28"/>
 <pinref part="C3" gate="G$1" pin="+"/>
+</segment>
+</net>
+<net name="N$9" class="0">
+<segment>
+<pinref part="MEGA16A" gate="G$1" pin="(TOSC1)PC6"/>
+<pinref part="R15" gate="G$1" pin="1"/>
+<wire x1="40.005" y1="38.1" x2="37.465" y2="38.1" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$13" class="0">
+<segment>
+<pinref part="R15" gate="G$1" pin="2"/>
+<pinref part="LED7" gate="G$1" pin="A"/>
+</segment>
+</net>
+<net name="PC5" class="0">
+<segment>
+<pinref part="MEGA16A" gate="G$1" pin="(TDI)PC5"/>
+<wire x1="37.465" y1="35.56" x2="40.005" y2="35.56" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

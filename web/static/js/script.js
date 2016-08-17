@@ -1,7 +1,7 @@
 var app = angular.module('app', []);
 
 app.factory('socket', function ($rootScope) {
-  var socket = io.connect("ws://127.0.0.1:8080/ws");
+  var socket = io.connect(wsUrl);
   return {
     on: function (eventName, callback) {
       socket.on(eventName, function () {
@@ -97,6 +97,12 @@ function MyCtrl($scope, socket) {
             }
         }
     };
+/*
+    setInterval(function () {
+        scope.$apply(function () {
+            scope.date = getDate();
+    });*/
+});
 }
 
 //setInterval(function () { ws.send("")}, 2000);

@@ -14,56 +14,56 @@ static touch_channel_t btn0 = {
     .port = &PORTA,
     .portmask = (1 << PA0),
     .state = btnOff,
-    .limit = 300,
+    .limit = 170,
 };
 static touch_channel_t btn1 = {
     .mux = 1,
     .port = &PORTA,
     .portmask = (1 << PA1),
     .state = btnOff,
-    .limit = 80,
+    .limit = 90,
 };
 static touch_channel_t btn2 = {
     .mux = 2,
     .port = &PORTA,
     .portmask = (1 << PA2),
     .state = btnOff,
-    .limit = 80,
+    .limit = 90,
 };
 static touch_channel_t btn3 = {
     .mux = 3,
     .port = &PORTA,
     .portmask = (1 << PA3),
     .state = btnOff,
-    .limit = 80,
+    .limit = 90,
 };
 static touch_channel_t btn4 = {
     .mux = 4,
     .port = &PORTA,
     .portmask = (1 << PA4),
     .state = btnOff,
-    .limit = 80,
+    .limit = 90,
 };
 static touch_channel_t btn5 = {
     .mux = 5,
     .port = &PORTA,
     .portmask = (1 << PA5),
     .state = btnOff,
-    .limit = 80,
+    .limit = 90,
 };
 static touch_channel_t btn6 = {
     .mux = 6,
     .port = &PORTA,
     .portmask = (1 << PA6),
     .state = btnOff,
-    .limit = 80,
+    .limit = 90,
 };
 static touch_channel_t btn7 = {
     .mux = 7,
     .port = &PORTA,
     .portmask = (1 << PA7),
     .state = btnOff,
-    .limit = 300,
+    .limit = 170,
 };
 
 
@@ -194,6 +194,11 @@ int main(void) {
         //sprintf (chr, "0: %d, 1: %d, 2: %d, 3: %d, 4: %d, 5: %d, 6: %d, 7: %d \n",
         //    btn0.state, btn1.state, btn2.state, btn3.state, btn4.state, btn5.state, btn6.state, btn7.state);
         //UART_puts(chr);
+
+        //sprintf (chr, "0: %d, 1: %d, 2: %d, 3: %d, 4: %d, 5: %d, 6: %d, 7: %d \n",
+        //    btn0.sum, btn1.sum, btn2.sum, btn3.sum, btn4.sum, btn5.sum, btn6.sum, btn7.sum);
+        //UART_puts(chr);
+        //UART_puts("\n");
         //_delay_ms(100);
         if (send == 1) {
             // high - enable trancseiver
@@ -210,10 +215,9 @@ int main(void) {
 
         // switch off background light
         if (value == 0) {
-            PORTD |= (1 << PD3) | (1 << PD4);
+            PORTC |= (1 << PC6);
         } else {
-            PORTD &= ~(1 << PD3);
-            PORTD &= ~(1 << PD4);
+            PORTC &= ~(1 << PC6);
         }
     }
 }
@@ -227,9 +231,11 @@ void pinsInit(void) {
     DDRC = 0x00;
     PORTC = 0x00;
 
+    DDRC  |= (1 << PC6);
+
     DDRD = 0x00;
     PORTD = 0x00;
 
-    DDRD  |= (1 << PD3) | (1 << PD4);
+    //DDRD  |= (1 << PD3) | (1 << PD4);
     DDRD  |= (1 << PD2);
 }

@@ -53,7 +53,13 @@ def backgroundThread():
 
 @app.route('/')
 def index():
-    return open('templates/index.html').read()
+    page = open('../templates/index.html').read()
+    page.replace(
+        "__WS__", "ws://%s:%s/ws" % (
+        baseApp.config.get("WebServer", "Host"),
+        baseApp.config.getint("WebServer", "Port"))
+    )
+    return page
 
 @socketio.on('send:updateSlider', namespace='/ws')
 def updateSlider(message):

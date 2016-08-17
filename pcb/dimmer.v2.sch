@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="7.3.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -9,6 +9,20 @@
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="no" active="no"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="no" active="no"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="no" active="no"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="no" active="no"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="no" active="no"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="no" active="no"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
@@ -15387,7 +15401,7 @@ super fast rectifier, 2 A</description>
 </classes>
 <parts>
 <part name="R6" library="rcl" deviceset="R-EU_" device="R1206" value="1K"/>
-<part name="T1" library="transistor-power" deviceset="IRF?5305" device="R"/>
+<part name="T1" library="transistor-power" deviceset="IRF?5305" device="R" value="IRFR024NPBF"/>
 <part name="AC-230V" library="con-wago-508" deviceset="W237-3E" device=""/>
 <part name="VCC+12V1" library="supply2" deviceset="VCC" device="" value="12V"/>
 <part name="POWER" library="con-wago-508" deviceset="W237-02P" device=""/>
@@ -15399,7 +15413,6 @@ super fast rectifier, 2 A</description>
 <part name="SW1" library="con-tycoelectronics" deviceset="RJ45SMD" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="+12V" library="supply2" deviceset="VCC" device=""/>
-<part name="C2" library="rcl" deviceset="C-EU" device="C1206" value="100nF"/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
 <part name="C3" library="rcl" deviceset="C-EU" device="C1206" value="100nF"/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
@@ -15436,7 +15449,6 @@ super fast rectifier, 2 A</description>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="T3" library="transistor-npn" deviceset="BC847*" device="SMD" technology="B"/>
 <part name="T2" library="transistor-npn" deviceset="BC847*" device="SMD" technology="B"/>
-<part name="D1" library="diode" deviceset="ES2D" device="" value="M1"/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="R8" library="rcl" deviceset="R-EU_" device="R1206" value="10k"/>
 <part name="R9" library="rcl" deviceset="R-EU_" device="R1206" value="10k"/>
@@ -15459,6 +15471,7 @@ super fast rectifier, 2 A</description>
 <part name="R2" library="rcl" deviceset="R-EU_" device="R1206" value="680"/>
 <part name="R16" library="rcl" deviceset="R-EU_" device="R1206" value="680"/>
 <part name="C5" library="rcl" deviceset="CPOL-EU" device="140CLH-0810" value="100uF"/>
+<part name="C1" library="rcl" deviceset="CPOL-EU" device="C/6032-28W"/>
 </parts>
 <sheets>
 <sheet>
@@ -15502,10 +15515,6 @@ super fast rectifier, 2 A</description>
 <instance part="SW1" gate="G$1" x="78.74" y="210.185"/>
 <instance part="GND10" gate="1" x="-97.79" y="199.39"/>
 <instance part="+12V" gate="G$1" x="-121.92" y="226.06" rot="R90"/>
-<instance part="C2" gate="G$1" x="-81.915" y="223.52" smashed="yes">
-<attribute name="NAME" x="-80.391" y="223.901" size="1.778" layer="95"/>
-<attribute name="VALUE" x="-80.391" y="218.821" size="1.778" layer="96"/>
-</instance>
 <instance part="GND13" gate="1" x="-81.915" y="215.9"/>
 <instance part="C3" gate="G$1" x="-48.895" y="213.36" smashed="yes" rot="R270">
 <attribute name="NAME" x="-53.594" y="219.456" size="1.778" layer="95" rot="R270"/>
@@ -15561,10 +15570,6 @@ super fast rectifier, 2 A</description>
 <attribute name="NAME" x="10.16" y="146.685" size="1.778" layer="95"/>
 <attribute name="VALUE" x="3.81" y="148.59" size="1.778" layer="96"/>
 </instance>
-<instance part="D1" gate="G$1" x="-115.57" y="226.06" smashed="yes">
-<attribute name="NAME" x="-118.11" y="228.1301" size="1.778" layer="95"/>
-<attribute name="VALUE" x="-118.11" y="222.1611" size="1.778" layer="96"/>
-</instance>
 <instance part="GND4" gate="1" x="-109.22" y="199.39"/>
 <instance part="R8" gate="G$1" x="62.23" y="212.09" rot="R90"/>
 <instance part="R9" gate="G$1" x="62.23" y="194.945" rot="R90"/>
@@ -15599,6 +15604,7 @@ super fast rectifier, 2 A</description>
 <attribute name="VALUE" x="8.89" y="146.812" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="C5" gate="G$1" x="-109.22" y="215.265"/>
+<instance part="C1" gate="G$1" x="-81.915" y="223.52"/>
 </instances>
 <busses>
 </busses>
@@ -15608,10 +15614,6 @@ super fast rectifier, 2 A</description>
 <pinref part="I2C" gate="A" pin="GND"/>
 <pinref part="GND9" gate="1" pin="GND"/>
 <wire x1="52.705" y1="217.17" x2="46.99" y2="217.17" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="C2" gate="G$1" pin="2"/>
-<pinref part="GND13" gate="1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="GND19" gate="1" pin="GND"/>
@@ -15736,6 +15738,10 @@ super fast rectifier, 2 A</description>
 <pinref part="C5" gate="G$1" pin="-"/>
 <wire x1="-109.22" y1="210.185" x2="-109.22" y2="201.93" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="GND13" gate="1" pin="GND"/>
+<pinref part="C1" gate="G$1" pin="-"/>
+</segment>
 </net>
 <net name="N$15" class="0">
 <segment>
@@ -15802,8 +15808,7 @@ super fast rectifier, 2 A</description>
 </segment>
 <segment>
 <pinref part="+12V" gate="G$1" pin="VCC"/>
-<pinref part="D1" gate="G$1" pin="A"/>
-<wire x1="-118.11" y1="226.06" x2="-119.38" y2="226.06" width="0.1524" layer="91"/>
+<wire x1="-113.03" y1="226.06" x2="-119.38" y2="226.06" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="I2C_BUS1" gate="G$1" pin="2"/>
@@ -15811,6 +15816,14 @@ super fast rectifier, 2 A</description>
 <wire x1="-87.63" y1="235.585" x2="-87.63" y2="233.045" width="0.1524" layer="91"/>
 <wire x1="-87.63" y1="233.045" x2="-84.455" y2="233.045" width="0.1524" layer="91"/>
 <junction x="-87.63" y="233.045"/>
+</segment>
+<segment>
+<pinref part="L1117" gate="G$1" pin="IN"/>
+<wire x1="-113.03" y1="226.06" x2="-109.22" y2="226.06" width="0.1524" layer="91"/>
+<pinref part="C5" gate="G$1" pin="+"/>
+<wire x1="-109.22" y1="226.06" x2="-105.41" y2="226.06" width="0.1524" layer="91"/>
+<wire x1="-109.22" y1="217.805" x2="-109.22" y2="226.06" width="0.1524" layer="91"/>
+<junction x="-109.22" y="226.06"/>
 </segment>
 </net>
 <net name="LY" class="0">
@@ -15944,16 +15957,16 @@ super fast rectifier, 2 A</description>
 <segment>
 <wire x1="-46.355" y1="226.06" x2="-70.485" y2="226.06" width="0.1524" layer="91"/>
 <wire x1="-70.485" y1="226.06" x2="-70.485" y2="220.345" width="0.1524" layer="91"/>
-<pinref part="C2" gate="G$1" pin="1"/>
-<wire x1="-81.915" y1="226.06" x2="-70.485" y2="226.06" width="0.1524" layer="91"/>
+<wire x1="-90.17" y1="226.06" x2="-81.915" y2="226.06" width="0.1524" layer="91"/>
 <junction x="-70.485" y="226.06"/>
 <pinref part="SUPPLY9" gate="G$1" pin="VCC"/>
 <junction x="-70.485" y="226.06"/>
 <pinref part="L1117" gate="G$1" pin="OUT"/>
-<wire x1="-90.17" y1="226.06" x2="-81.915" y2="226.06" width="0.1524" layer="91"/>
-<junction x="-81.915" y="226.06"/>
 <pinref part="M328" gate="A" pin="AVCC"/>
 <pinref part="R3" gate="G$1" pin="2"/>
+<pinref part="C1" gate="G$1" pin="+"/>
+<wire x1="-81.915" y1="226.06" x2="-70.485" y2="226.06" width="0.1524" layer="91"/>
+<junction x="-81.915" y="226.06"/>
 </segment>
 <segment>
 <pinref part="SW3" gate="G$1" pin="5"/>
@@ -16174,17 +16187,6 @@ super fast rectifier, 2 A</description>
 <wire x1="-10.795" y1="215.9" x2="-7.62" y2="215.9" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="IN" class="0">
-<segment>
-<pinref part="D1" gate="G$1" pin="C"/>
-<pinref part="L1117" gate="G$1" pin="IN"/>
-<wire x1="-113.03" y1="226.06" x2="-109.22" y2="226.06" width="0.1524" layer="91"/>
-<pinref part="C5" gate="G$1" pin="+"/>
-<wire x1="-109.22" y1="226.06" x2="-105.41" y2="226.06" width="0.1524" layer="91"/>
-<wire x1="-109.22" y1="217.805" x2="-109.22" y2="226.06" width="0.1524" layer="91"/>
-<junction x="-109.22" y="226.06"/>
-</segment>
-</net>
 <net name="12V" class="0">
 <segment>
 <pinref part="LIGHT" gate="-2" pin="KL"/>
@@ -16234,22 +16236,6 @@ super fast rectifier, 2 A</description>
 </nets>
 </sheet>
 </sheets>
-<errors>
-<approved hash="102,1,-49.2125,85.09,VCC,VCC+5V,,,,"/>
-<approved hash="102,1,-49.2125,80.01,VCC,VCC+12V,,,,"/>
-<approved hash="102,1,56.8325,44.1325,VCC,VCC+12V,,,,"/>
-<approved hash="110,1,-51.435,79.6925,VCC+12V,VCC+5V,,,,"/>
-<approved hash="113,1,52.07,63.7752,R1,,,,,"/>
-<approved hash="113,1,113.537,14.605,X2,,,,,"/>
-<approved hash="113,1,-49.7682,75.8825,C1,,,,,"/>
-<approved hash="113,1,0.396841,69.5325,C2,,,,,"/>
-<approved hash="113,1,0.396841,80.01,C3,,,,,"/>
-<approved hash="113,1,-41.5132,66.04,C4,,,,,"/>
-<approved hash="113,1,-34.2107,66.04,C5,,,,,"/>
-<approved hash="113,1,75.754,38.4175,X1,,,,,"/>
-<approved hash="113,1,98.425,47.1185,X3,,,,,"/>
-<approved hash="113,1,73.3002,94.1112,JP1,,,,,"/>
-</errors>
 </schematic>
 </drawing>
 </eagle>
