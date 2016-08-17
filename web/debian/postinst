@@ -6,13 +6,13 @@ set -e
 
 case "$1" in
     configure)
-        update-rc.d szn-sklik-importweb defaults 30
+        #update-rc.d szn-sklik-importweb defaults 30
 
-        PARENT_DIRECTORY=/www/sklik/
-        chown -R --reference ${PARENT_DIRECTORY} ${PARENT_DIRECTORY}/importweb/
-        chown -R nobody:nogroup /www/sklik/importweb/log
-	    chown -R nobody:nogroup /www/sklik/importweb/savedfiles
-	    chown -R nobody:nogroup /www/sklik/importweb/tmp
+        #PARENT_DIRECTORY=/www/sklik/
+        #chown -R --reference ${PARENT_DIRECTORY} ${PARENT_DIRECTORY}/importweb/
+        #chown -R nobody:nogroup /www/sklik/importweb/log
+	#    chown -R nobody:nogroup /www/sklik/importweb/savedfiles
+	#    chown -R nobody:nogroup /www/sklik/importweb/tmp
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)

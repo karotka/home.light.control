@@ -4,9 +4,9 @@
 #export DH_VERBOSE=1
 
 DEBIAN:=$(CURDIR)/debian
-PROJECT:=importweb
-PACKAGE:=szn-sklik-$(PROJECT)
-BASEDIR:=$(DEBIAN)/$(PACKAGE)/www/sklik/$(PROJECT)
+PROJECT:=hlc
+PACKAGE:=$(PROJECT)-web
+BASEDIR:=$(DEBIAN)/$(PACKAGE)/var/www/hlc/$(PROJECT)
 
 %:
 	dh $@ --with python2
@@ -20,5 +20,4 @@ override_dh_python2:
 
 override_dh_fixperms:
 	dh_fixperms
-	chmod +x $(BASEDIR)/server/app.py
-	chmod +x $(BASEDIR)/server/test.py
+	#chmod +x $(BASEDIR)/service/run

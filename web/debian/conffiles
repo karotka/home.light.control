@@ -1,3 +1,4 @@
-/www/sklik/importweb/conf/importweb.conf
-/www/sklik/importweb/conf/importweb-nginx.conf
-/www/sklik/importweb/conf/importweb-uwsgi.xml
+/var/www/hlc/web/conf/web.conf
+/var/www/hlc/web/conf/nginx.conf
+/etc/supervisor/conf.d/supervizor-flask.conf
+/etc/supervisor/conf.d/supervizor-nginx.conf

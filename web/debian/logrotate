@@ -1,4 +1,4 @@
-/www/sklik/importweb/log/*_log {
+/var/www/hlc/web/logs/*_log {
 	daily
 	compress
 	delaycompress
@@ -8,9 +8,8 @@
 	nocreate
 	sharedscripts
     prerotate
-        find /www/sklik/importweb/tmp/* -mmin +120 -exec rm {} \;
-        find /www/sklik/importweb/savedfiles/* -mtime +14 -exec rm {} \;
-	postrotate
-        /etc/init.d/szn-sklik-importweb reload
-	endscript
+        find /var/www/hlc/web/logs/* -mmin +120 -exec rm {} \;
+    postrotate
+        #/etc/init.d/szn-sklik-importweb reload
+    endscript
 }

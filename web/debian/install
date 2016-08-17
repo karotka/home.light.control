@@ -1,3 +1,5 @@
-conf/* /www/sklik/importweb/conf/
-service/* /www/sklik/importweb/service/
-service-uwsgi/* /www/sklik/importweb/service-uwsgi/
+conf/* /var/www/hlc/web/conf/
+static/* /var/www/hlc/web/static/
+templates/* /var/www/hlc/web/templates/
+data/* /var/www/hlc/web/data/
+service/* /var/www/hlc/web/service/

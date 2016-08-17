@@ -1,3 +1,4 @@
-/www/sklik/importweb/log
-/www/sklik/importweb/savedfiles
-/www/sklik/importweb/tmp
+/var/www/hlc/log
+/var/www/hlc/web
+/var/www/hlc/bin
+/var/www/hlc/service

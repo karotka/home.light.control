@@ -20,15 +20,15 @@ set -e
 
 case "$1" in
     remove)
-        update-rc.d -f szn-sklik-importweb remove 2>/dev/null || true
-        rm -r /www/sklik/importweb/server 2>/dev/null || true
+        #update-rc.d -f szn-sklik-importweb remove 2>/dev/null || true
+        #rm -r /www/sklik/importweb/server 2>/dev/null || true
     ;;
 
     purge)
-        rm -r /www/sklik/importweb/* 2>/dev/null || true
-        rm -rf /www/sklik/importweb/log/* || true
-        rm -rf /www/sklik/importweb/server/*.pyc || true
-        rm -rf /www/sklik/importweb/server/lib/*.pyc || true
+        #rm -r /www/sklik/importweb/* 2>/dev/null || true
+        #rm -rf /www/sklik/importweb/log/* || true
+        #rm -rf /www/sklik/importweb/server/*.pyc || true
+        #rm -rf /www/sklik/importweb/server/lib/*.pyc || true
     ;;
 
     upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
