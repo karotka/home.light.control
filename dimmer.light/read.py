@@ -2,10 +2,10 @@
 
 import serial
 
-#SERIAL  = "/dev/tty.NoZAP-PL2303-00002014"
+SERIAL  = "/dev/tty.NoZAP-PL2303-00001014"
 #SERIAL  = "/dev/tty.NoZAP-PL2303-000012FD"
 #SERIAL = "/dev/tty.usbserial-A9IDXBNR"
-SERIAL = "/dev/tty.usbserial-A9IDXBNR"
+#SERIAL = "/dev/tty.usbserial-A9IDXBNR"
 
 ser = serial.Serial(SERIAL, 1200, stopbits=2)
 

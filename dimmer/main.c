@@ -82,6 +82,7 @@ void pwmInit(void) {
 void pinsInit(void) {
     DDRB = 0x00;
     DDRD = 0x00;
+
     DDRB |= (1 << PB2) | (1 << PB3);
     DDRD |= (1 << PD6);
 }

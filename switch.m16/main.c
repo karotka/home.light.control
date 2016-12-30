@@ -72,7 +72,7 @@ void pinsInit(void);
 void pinsInit(void);
 void timer0Init(void);
 
-volatile uint8_t value = 0;
+volatile int value = 0;
 volatile uint8_t send = 0;
 
 void handleButtons(void) {
